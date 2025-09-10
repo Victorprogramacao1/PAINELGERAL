@@ -22,11 +22,30 @@
             75% { transform: translateX(5px); }
         }
         
+        /* Fundo Roxo e Azul Escuro */
+        .login-background {
+            background: linear-gradient(135deg, 
+                #1a0b2e 0%,     /* Roxo muito escuro */
+                #16213e 25%,    /* Azul escuro */
+                #0f3460 50%,    /* Azul médio escuro */
+                #533483 75%,    /* Roxo médio */
+                #7209b7 100%    /* Roxo mais claro */
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         /* Padrão de Grid Tecnológico */
         .grid-pattern {
             background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+                linear-gradient(rgba(138, 43, 226, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(138, 43, 226, 0.1) 1px, transparent 1px);
             background-size: 50px 50px;
             width: 100%;
             height: 100%;
@@ -38,7 +57,7 @@
             100% { transform: translate(50px, 50px); }
         }
         
-        /* Partículas Flutuantes */
+        /* Partículas Flutuantes Roxas */
         .particles-container {
             position: absolute;
             width: 100%;
@@ -50,9 +69,9 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(0, 255, 255, 0.6);
+            background: rgba(138, 43, 226, 0.6);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
         }
         
         .particle-1 { top: 20%; left: 10%; animation: float1 15s infinite ease-in-out; }
@@ -92,79 +111,18 @@
             50% { transform: translate(-100px, -80px) scale(1.6); opacity: 1; }
         }
         
-        /* Linhas de Circuito */
-        .circuit-lines {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .circuit-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
-            height: 2px;
-        }
-        
-        .line-1 {
-            top: 25%;
-            left: 0;
-            width: 60%;
-            animation: circuitPulse1 8s infinite ease-in-out;
-        }
-        
-        .line-2 {
-            top: 50%;
-            right: 0;
-            width: 40%;
-            animation: circuitPulse2 6s infinite ease-in-out;
-        }
-        
-        .line-3 {
-            top: 75%;
-            left: 20%;
-            width: 50%;
-            animation: circuitPulse3 10s infinite ease-in-out;
-        }
-        
-        .line-4 {
-            top: 10%;
-            left: 40%;
-            width: 35%;
-            animation: circuitPulse4 7s infinite ease-in-out;
-        }
-        
-        @keyframes circuitPulse1 {
-            0%, 100% { opacity: 0.2; transform: scaleX(0.5); }
-            50% { opacity: 1; transform: scaleX(1); }
-        }
-        
-        @keyframes circuitPulse2 {
-            0%, 100% { opacity: 0.3; transform: scaleX(0.3); }
-            50% { opacity: 0.8; transform: scaleX(1); }
-        }
-        
-        @keyframes circuitPulse3 {
-            0%, 100% { opacity: 0.1; transform: scaleX(0.7); }
-            50% { opacity: 0.9; transform: scaleX(1); }
-        }
-        
-        @keyframes circuitPulse4 {
-            0%, 100% { opacity: 0.4; transform: scaleX(0.4); }
-            50% { opacity: 1; transform: scaleX(1); }
-        }
-        
         /* Container Principal do Login */
         .tech-login-container {
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(20px);
-            border: 2px solid rgba(0, 255, 255, 0.3);
+            border: 2px solid rgba(138, 43, 226, 0.3);
             border-radius: 20px;
             padding: 40px;
             max-width: 500px;
             width: 100%;
             box-shadow: 
-                0 0 50px rgba(0, 255, 255, 0.2),
-                inset 0 0 50px rgba(0, 255, 255, 0.05);
+                0 0 50px rgba(138, 43, 226, 0.2),
+                inset 0 0 50px rgba(138, 43, 226, 0.05);
             position: relative;
             overflow: hidden;
         }
@@ -177,10 +135,10 @@
             right: -2px;
             bottom: -2px;
             background: linear-gradient(45deg, 
-                rgba(0, 255, 255, 0.5), 
-                rgba(0, 100, 255, 0.5), 
-                rgba(255, 0, 255, 0.5), 
-                rgba(0, 255, 255, 0.5));
+                rgba(138, 43, 226, 0.5), 
+                rgba(75, 0, 130, 0.5), 
+                rgba(72, 61, 139, 0.5), 
+                rgba(138, 43, 226, 0.5));
             border-radius: 20px;
             z-index: -1;
             animation: borderGlow 3s linear infinite;
@@ -191,6 +149,144 @@
             100% { transform: rotate(360deg); }
         }
         
+        /* Sistema de Engrenagens Interativas */
+        .gears-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .gear {
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid rgba(138, 43, 226, 0.4);
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1), rgba(75, 0, 130, 0.05));
+            box-shadow: 
+                0 0 20px rgba(138, 43, 226, 0.3),
+                inset 0 0 15px rgba(138, 43, 226, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gear::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            background: radial-gradient(circle, transparent 30%, rgba(138, 43, 226, 0.1) 70%);
+        }
+        
+        .gear::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+            height: 30%;
+            border-radius: 50%;
+            background: rgba(138, 43, 226, 0.4);
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        }
+        
+        /* Estados das Engrenagens */
+        .gear.idle {
+            animation: gearRotateIdle 8s linear infinite;
+            border-color: rgba(138, 43, 226, 0.3);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+        }
+        
+        .gear.typing {
+            animation: gearRotateTyping 2s linear infinite;
+            border-color: rgba(138, 43, 226, 0.7);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
+            transform: scale(1.1);
+        }
+        
+        .gear.unlocking {
+            animation: gearRotateUnlocking 1s linear infinite;
+            border-color: rgba(0, 255, 127, 0.8);
+            box-shadow: 0 0 35px rgba(0, 255, 127, 0.7);
+            transform: scale(1.2);
+        }
+        
+        /* Posicionamento das Engrenagens */
+        .gear-1 {
+            width: 80px;
+            height: 80px;
+            top: 15%;
+            left: 10%;
+        }
+        
+        .gear-2 {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            right: 15%;
+        }
+        
+        .gear-3 {
+            width: 70px;
+            height: 70px;
+            top: 50%;
+            left: 5%;
+        }
+        
+        .gear-4 {
+            width: 90px;
+            height: 90px;
+            top: 45%;
+            right: 8%;
+        }
+        
+        .gear-5 {
+            width: 50px;
+            height: 50px;
+            bottom: 25%;
+            left: 20%;
+        }
+        
+        .gear-6 {
+            width: 75px;
+            height: 75px;
+            bottom: 15%;
+            right: 25%;
+        }
+        
+        /* Animações das Engrenagens */
+        @keyframes gearRotateIdle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes gearRotateTyping {
+            0% { transform: scale(1.1) rotate(0deg); }
+            100% { transform: scale(1.1) rotate(360deg); }
+        }
+        
+        @keyframes gearRotateUnlocking {
+            0% { 
+                transform: scale(1.2) rotate(0deg);
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.3) rotate(180deg);
+                filter: brightness(1.5);
+            }
+            100% { 
+                transform: scale(1.2) rotate(360deg);
+                filter: brightness(1);
+            }
+        }
+        
         /* Header Tecnológico */
         .tech-header {
             display: flex;
@@ -198,7 +294,9 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+            position: relative;
+            z-index: 10;
         }
         
         .system-status {
@@ -215,8 +313,8 @@
         }
         
         .status-indicator.online {
-            background: #00ff00;
-            box-shadow: 0 0 15px #00ff00;
+            background: #00ff7f;
+            box-shadow: 0 0 15px #00ff7f;
             animation: pulse 2s infinite;
         }
         
@@ -226,14 +324,14 @@
         }
         
         .status-text {
-            color: #00ff00;
+            color: #00ff7f;
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
         }
         
         .system-time {
-            color: #00ffff;
+            color: #8a2be2;
             font-family: 'Courier New', monospace;
             font-size: 14px;
             font-weight: bold;
@@ -243,6 +341,8 @@
         .tech-logo-section {
             text-align: center;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
         }
         
         .logo-container {
@@ -260,8 +360,8 @@
         .hexagon-inner {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 100, 255, 0.2));
-            border: 2px solid rgba(0, 255, 255, 0.6);
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(75, 0, 130, 0.2));
+            border: 2px solid rgba(138, 43, 226, 0.6);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -278,7 +378,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(138, 43, 226, 0.1), transparent);
             animation: logoScan 4s linear infinite;
         }
         
@@ -293,7 +393,7 @@
             left: -10px;
             right: -10px;
             bottom: -10px;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.3), transparent);
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3), transparent);
             border-radius: 20px;
             z-index: -1;
             animation: hexagonGlow 3s ease-in-out infinite alternate;
@@ -310,71 +410,21 @@
             font-weight: bold;
             letter-spacing: 3px;
             margin-bottom: 8px;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
         }
         
         .system-subtitle {
-            color: #00ffff;
+            color: #8a2be2;
             font-size: 14px;
             letter-spacing: 2px;
             opacity: 0.8;
         }
         
-        /* Scanner de Segurança */
-        .security-scanner {
-            width: 100%;
-            height: 60px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            border-radius: 10px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .scanner-line {
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.8), transparent);
-            animation: scannerMove 3s linear infinite;
-        }
-        
-        @keyframes scannerMove {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
-        .scanner-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            padding: 15px;
-            height: 100%;
-        }
-        
-        .grid-dot {
-            width: 8px;
-            height: 8px;
-            background: rgba(0, 255, 255, 0.4);
-            border-radius: 50%;
-            animation: dotPulse 2s infinite;
-        }
-        
-        .grid-dot:nth-child(odd) {
-            animation-delay: 0.5s;
-        }
-        
-        @keyframes dotPulse {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.5); }
-        }
-        
         /* Formulário Tecnológico */
         .tech-form {
             margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
         }
         
         .input-group {
@@ -383,7 +433,7 @@
         
         .input-label {
             display: block;
-            color: #00ffff;
+            color: #8a2be2;
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
@@ -399,7 +449,7 @@
             width: 100%;
             padding: 15px 20px;
             background: rgba(0, 0, 0, 0.7);
-            border: 2px solid rgba(0, 255, 255, 0.3);
+            border: 2px solid rgba(138, 43, 226, 0.3);
             border-radius: 10px;
             color: #ffffff;
             font-size: 16px;
@@ -411,48 +461,12 @@
         
         .tech-input:focus {
             outline: none;
-            border-color: rgba(0, 255, 255, 0.8);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            border-color: rgba(138, 43, 226, 0.8);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
         }
         
         .tech-input::placeholder {
             color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .input-border {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 2px solid transparent;
-            border-radius: 10px;
-            background: linear-gradient(45deg, rgba(0, 255, 255, 0.5), rgba(0, 100, 255, 0.5));
-            background-clip: padding-box;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .tech-input:focus + .input-border {
-            opacity: 1;
-        }
-        
-        .input-glow {
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(0, 100, 255, 0.2));
-            border-radius: 12px;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .tech-input:focus ~ .input-glow {
-            opacity: 1;
         }
         
         /* Contador de Tentativas */
@@ -463,12 +477,14 @@
             margin-bottom: 20px;
             padding: 10px 15px;
             background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 8px;
+            position: relative;
+            z-index: 10;
         }
         
         .counter-label {
-            color: #ffff00;
+            color: #ffd700;
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
@@ -515,6 +531,8 @@
             font-weight: bold;
             letter-spacing: 1px;
             animation: messageSlide 0.5s ease-out;
+            position: relative;
+            z-index: 10;
         }
         
         @keyframes messageSlide {
@@ -538,8 +556,8 @@
         .tech-button {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 100, 255, 0.2));
-            border: 2px solid rgba(0, 255, 255, 0.5);
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(75, 0, 130, 0.2));
+            border: 2px solid rgba(138, 43, 226, 0.5);
             border-radius: 12px;
             color: #ffffff;
             font-size: 16px;
@@ -551,11 +569,12 @@
             overflow: hidden;
             transition: all 0.3s ease;
             margin-bottom: 30px;
+            z-index: 10;
         }
         
         .tech-button:hover {
-            border-color: rgba(0, 255, 255, 0.8);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+            border-color: rgba(138, 43, 226, 0.8);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
             transform: translateY(-2px);
         }
         
@@ -583,7 +602,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, rgba(0, 255, 255, 0.3), rgba(0, 100, 255, 0.3));
+            background: linear-gradient(45deg, rgba(138, 43, 226, 0.3), rgba(75, 0, 130, 0.3));
             border-radius: 14px;
             z-index: 0;
             opacity: 0;
@@ -608,114 +627,6 @@
         .tech-button:hover .button-scan {
             left: 100%;
         }
-        
-        /* Efeito Neon Roxo Infinito para Perfis */
-        .neon-purple-border {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .neon-purple-border::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(45deg, 
-                #8b5cf6, #a855f7, #c084fc, #e879f9, 
-                #f0abfc, #fbbf24, #f59e0b, #d97706,
-                #dc2626, #ef4444, #f87171, #fca5a5,
-                #06b6d4, #0891b2, #0e7490, #155e75,
-                #8b5cf6);
-            background-size: 400% 400%;
-            border-radius: inherit;
-            z-index: -1;
-            animation: neonPurpleFlow 4s linear infinite;
-            filter: blur(1px);
-        }
-        
-        .neon-purple-border::after {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            background: linear-gradient(45deg, 
-                transparent, #8b5cf6, transparent, #a855f7, 
-                transparent, #c084fc, transparent, #e879f9,
-                transparent, #8b5cf6);
-            background-size: 300% 300%;
-            border-radius: inherit;
-            z-index: -1;
-            animation: neonPurpleGlow 3s linear infinite reverse;
-            opacity: 0.8;
-        }
-        
-        @keyframes neonPurpleFlow {
-            0% { 
-                background-position: 0% 50%;
-                filter: blur(1px) brightness(1);
-            }
-            25% { 
-                background-position: 100% 50%;
-                filter: blur(2px) brightness(1.2);
-            }
-            50% { 
-                background-position: 100% 100%;
-                filter: blur(1.5px) brightness(1.1);
-            }
-            75% { 
-                background-position: 0% 100%;
-                filter: blur(2px) brightness(1.3);
-            }
-            100% { 
-                background-position: 0% 50%;
-                filter: blur(1px) brightness(1);
-            }
-        }
-        
-        @keyframes neonPurpleGlow {
-            0% { 
-                background-position: 0% 0%;
-                opacity: 0.6;
-                transform: scale(1);
-            }
-            33% { 
-                background-position: 100% 0%;
-                opacity: 0.9;
-                transform: scale(1.02);
-            }
-            66% { 
-                background-position: 100% 100%;
-                opacity: 0.7;
-                transform: scale(0.98);
-            }
-            100% { 
-                background-position: 0% 0%;
-                opacity: 0.6;
-                transform: scale(1);
-            }
-        }
-        
-        /* Efeito de Pulsação Neon Adicional */
-        .neon-pulse {
-            animation: neonPulse 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes neonPulse {
-            0% { 
-                box-shadow: 0 0 20px rgba(139, 92, 246, 0.3),
-                           0 0 40px rgba(139, 92, 246, 0.2),
-                           0 0 60px rgba(139, 92, 246, 0.1);
-            }
-            100% { 
-                box-shadow: 0 0 30px rgba(139, 92, 246, 0.6),
-                           0 0 60px rgba(139, 92, 246, 0.4),
-                           0 0 90px rgba(139, 92, 246, 0.2);
-            }
-        }
 
         /* Sistema de Engrenagens Robóticas */
         .robot-activation-overlay {
@@ -724,7 +635,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 20, 40, 0.95));
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 11, 46, 0.95));
             z-index: 9999;
             display: flex;
             align-items: center;
@@ -745,17 +656,17 @@
             height: 400px;
         }
         
-        .gear {
+        .gear-robot {
             position: absolute;
             border-radius: 50%;
-            border: 4px solid rgba(0, 255, 255, 0.8);
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.1), rgba(0, 100, 255, 0.05));
+            border: 4px solid rgba(138, 43, 226, 0.8);
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1), rgba(75, 0, 130, 0.05));
             box-shadow: 
-                0 0 30px rgba(0, 255, 255, 0.5),
-                inset 0 0 20px rgba(0, 255, 255, 0.2);
+                0 0 30px rgba(138, 43, 226, 0.5),
+                inset 0 0 20px rgba(138, 43, 226, 0.2);
         }
         
-        .gear::before {
+        .gear-robot::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -764,11 +675,11 @@
             width: 80%;
             height: 80%;
             border-radius: 50%;
-            border: 2px solid rgba(0, 255, 255, 0.6);
-            background: radial-gradient(circle, transparent 30%, rgba(0, 255, 255, 0.1) 70%);
+            border: 2px solid rgba(138, 43, 226, 0.6);
+            background: radial-gradient(circle, transparent 30%, rgba(138, 43, 226, 0.1) 70%);
         }
         
-        .gear::after {
+        .gear-robot::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -777,8 +688,8 @@
             width: 40%;
             height: 40%;
             border-radius: 50%;
-            background: rgba(0, 255, 255, 0.3);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            background: rgba(138, 43, 226, 0.3);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
         }
         
         /* Engrenagem Principal Central */
@@ -1031,7 +942,7 @@
             bottom: 80px;
             left: 50%;
             transform: translateX(-50%);
-            color: #00ffff;
+            color: #8a2be2;
             font-family: 'Courier New', monospace;
             font-size: 18px;
             font-weight: bold;
@@ -1068,120 +979,12 @@
                 transform: translateX(-50%) translateY(-10px);
             }
         }
-        
-        /* Linhas de Conexão entre Engrenagens */
-        .gear-connection {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.6), transparent);
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-            opacity: 0;
-            animation: connectionActivation 3s ease-in-out;
-        }
-        
-        .connection-1 {
-            top: 35%;
-            left: 35%;
-            width: 30%;
-            transform: rotate(25deg);
-            animation-delay: 1s;
-        }
-        
-        .connection-2 {
-            top: 45%;
-            left: 20%;
-            width: 25%;
-            transform: rotate(-30deg);
-            animation-delay: 1.3s;
-        }
-        
-        .connection-3 {
-            bottom: 35%;
-            right: 35%;
-            width: 28%;
-            transform: rotate(-25deg);
-            animation-delay: 1.6s;
-        }
-        
-        .connection-4 {
-            bottom: 45%;
-            left: 35%;
-            width: 30%;
-            transform: rotate(30deg);
-            animation-delay: 1.9s;
-        }
-        
-        @keyframes connectionActivation {
-            0% { 
-                opacity: 0;
-                transform: scaleX(0) rotate(var(--rotation, 0deg));
-            }
-            30% { 
-                opacity: 0.8;
-                transform: scaleX(0.5) rotate(var(--rotation, 0deg));
-            }
-            60% { 
-                opacity: 1;
-                transform: scaleX(1) rotate(var(--rotation, 0deg));
-            }
-            100% { 
-                opacity: 0;
-                transform: scaleX(1) rotate(var(--rotation, 0deg));
-            }
-        }
-        
-        /* Partículas de Energia */
-        .energy-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        
-        .energy-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(0, 255, 255, 0.8);
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 1);
-            opacity: 0;
-            animation: energyParticleFloat 2s ease-in-out;
-        }
-        
-        .particle-1 { top: 20%; left: 20%; animation-delay: 0.5s; }
-        .particle-2 { top: 30%; right: 25%; animation-delay: 0.8s; }
-        .particle-3 { bottom: 25%; left: 30%; animation-delay: 1.1s; }
-        .particle-4 { bottom: 35%; right: 20%; animation-delay: 1.4s; }
-        .particle-5 { top: 50%; left: 15%; animation-delay: 1.7s; }
-        .particle-6 { top: 60%; right: 15%; animation-delay: 2s; }
-        
-        @keyframes energyParticleFloat {
-            0% { 
-                opacity: 0;
-                transform: scale(0.3) translateY(0px);
-            }
-            20% { 
-                opacity: 0.8;
-                transform: scale(0.8) translateY(-10px);
-            }
-            50% { 
-                opacity: 1;
-                transform: scale(1.2) translateY(-20px);
-            }
-            80% { 
-                opacity: 0.6;
-                transform: scale(0.9) translateY(-30px);
-            }
-            100% { 
-                opacity: 0;
-                transform: scale(0.3) translateY(-40px);
-            }
-        }
 
         /* Informações do Sistema */
         .system-info {
             margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
         }
         
         .info-grid {
@@ -1209,6 +1012,7 @@
             right: 20px;
             display: flex;
             gap: 8px;
+            z-index: 10;
         }
         
         .security-light {
@@ -1229,15 +1033,156 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.3; }
         }
+
+        /* Estilos para Sites Online */
+        .site-card {
+            position: relative;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .site-card.online {
+            border-color: rgba(34, 197, 94, 0.5);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+        }
+
+        .site-card.offline {
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+        }
+
+        .site-card.checking {
+            border-color: rgba(251, 191, 36, 0.5);
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .status-dot.online {
+            background: #22c55e;
+            box-shadow: 0 0 10px #22c55e;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.offline {
+            background: #ef4444;
+            box-shadow: 0 0 10px #ef4444;
+        }
+
+        .status-dot.checking {
+            background: #fbbf24;
+            box-shadow: 0 0 10px #fbbf24;
+            animation: pulse 1s infinite;
+        }
+
+        .site-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .site-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .site-btn.visit {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .site-btn.visit:hover {
+            background: rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .site-btn.check {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .site-btn.check:hover {
+            background: rgba(34, 197, 94, 0.3);
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .site-btn.remove {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .site-btn.remove:hover {
+            background: rgba(239, 68, 68, 0.3);
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .site-url {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #9ca3af;
+            word-break: break-all;
+        }
+
+        .site-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .site-status {
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .site-response-time {
+            font-size: 11px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        /* Animação de carregamento para verificação */
+        .checking-animation {
+            animation: checkingPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes checkingPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
 <body class="login-container overflow-x-hidden">
 
     <!-- Tela de Login Tecnológica -->
-    <div id="loginScreen" class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden login-background">
         
         <!-- Efeitos de Fundo Tecnológicos -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-black">
+        <div class="absolute inset-0">
             <!-- Grid Tecnológico -->
             <div class="absolute inset-0 opacity-20">
                 <div class="grid-pattern"></div>
@@ -1252,14 +1197,16 @@
                 <div class="particle particle-5"></div>
                 <div class="particle particle-6"></div>
             </div>
-            
-            <!-- Linhas de Circuito -->
-            <div class="circuit-lines">
-                <div class="circuit-line line-1"></div>
-                <div class="circuit-line line-2"></div>
-                <div class="circuit-line line-3"></div>
-                <div class="circuit-line line-4"></div>
-            </div>
+        </div>
+        
+        <!-- Sistema de Engrenagens Interativas -->
+        <div class="gears-background">
+            <div class="gear gear-1 idle" id="gear1"></div>
+            <div class="gear gear-2 idle" id="gear2"></div>
+            <div class="gear gear-3 idle" id="gear3"></div>
+            <div class="gear gear-4 idle" id="gear4"></div>
+            <div class="gear gear-5 idle" id="gear5"></div>
+            <div class="gear gear-6 idle" id="gear6"></div>
         </div>
         
         <!-- Painel de Login Principal -->
@@ -1278,7 +1225,7 @@
                 <div class="logo-container">
                     <div class="logo-hexagon">
                         <div class="hexagon-inner">
-                            <i class="fas fa-shield-alt text-cyan-400 text-4xl"></i>
+                            <i class="fas fa-shield-alt text-purple-400 text-4xl"></i>
                         </div>
                         <div class="hexagon-glow"></div>
                     </div>
@@ -1287,28 +1234,29 @@
                 <p class="system-subtitle">Advanced Authentication Interface</p>
             </div>
             
-            <!-- Scanner de Segurança -->
-            <div class="security-scanner">
-                <div class="scanner-line"></div>
-                <div class="scanner-grid">
-                    <div class="grid-dot"></div>
-                    <div class="grid-dot"></div>
-                    <div class="grid-dot"></div>
-                    <div class="grid-dot"></div>
-                    <div class="grid-dot"></div>
-                    <div class="grid-dot"></div>
-                    <div class="grid-dot"></div>
-                    <div class="grid-dot"></div>
-                    <div class="grid-dot"></div>
-                </div>
-            </div>
-            
             <!-- Formulário de Autenticação -->
             <form id="loginForm" class="tech-form">
                 <div class="input-group">
                     <label class="input-label">
+                        <i class="fas fa-user mr-2"></i>
+                        USUÁRIO
+                    </label>
+                    <div class="input-container">
+                        <input 
+                            type="text" 
+                            id="usernameInput"
+                            class="tech-input"
+                            placeholder="Digite seu nome de usuário..."
+                            value="admin"
+                            readonly
+                        >
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">
                         <i class="fas fa-key mr-2"></i>
-                        CÓDIGO DE ACESSO
+                        SENHA
                     </label>
                     <div class="input-container">
                         <input 
@@ -1319,8 +1267,6 @@
                             required
                             autocomplete="current-password"
                         >
-                        <div class="input-border"></div>
-                        <div class="input-glow"></div>
                     </div>
                 </div>
                 
@@ -1356,7 +1302,7 @@
                 >
                     <div class="button-content">
                         <i class="fas fa-fingerprint mr-2"></i>
-                        <span class="button-text">INICIAR AUTENTICAÇÃO</span>
+                        <span class="button-text">ENTRAR</span>
                     </div>
                     <div class="button-glow"></div>
                     <div class="button-scan"></div>
@@ -1399,35 +1345,19 @@
     <div id="robotActivationOverlay" class="robot-activation-overlay">
         <div class="gears-container">
             <!-- Engrenagem Principal Central -->
-            <div class="gear gear-main"></div>
+            <div class="gear-robot gear-main"></div>
             
             <!-- Engrenagens Secundárias -->
-            <div class="gear gear-secondary-1"></div>
-            <div class="gear gear-secondary-2"></div>
-            <div class="gear gear-secondary-3"></div>
-            <div class="gear gear-secondary-4"></div>
+            <div class="gear-robot gear-secondary-1"></div>
+            <div class="gear-robot gear-secondary-2"></div>
+            <div class="gear-robot gear-secondary-3"></div>
+            <div class="gear-robot gear-secondary-4"></div>
             
             <!-- Engrenagens Pequenas -->
-            <div class="gear gear-small-1"></div>
-            <div class="gear gear-small-2"></div>
-            <div class="gear gear-small-3"></div>
-            <div class="gear gear-small-4"></div>
-            
-            <!-- Linhas de Conexão -->
-            <div class="gear-connection connection-1"></div>
-            <div class="gear-connection connection-2"></div>
-            <div class="gear-connection connection-3"></div>
-            <div class="gear-connection connection-4"></div>
-            
-            <!-- Partículas de Energia -->
-            <div class="energy-particles">
-                <div class="energy-particle particle-1"></div>
-                <div class="energy-particle particle-2"></div>
-                <div class="energy-particle particle-3"></div>
-                <div class="energy-particle particle-4"></div>
-                <div class="energy-particle particle-5"></div>
-                <div class="energy-particle particle-6"></div>
-            </div>
+            <div class="gear-robot gear-small-1"></div>
+            <div class="gear-robot gear-small-2"></div>
+            <div class="gear-robot gear-small-3"></div>
+            <div class="gear-robot gear-small-4"></div>
             
             <!-- Texto de Ativação -->
             <div class="robot-activation-text">
@@ -1453,6 +1383,13 @@
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">
+                        <button 
+                            id="audioToggleBtn"
+                            class="bg-purple-800 hover:bg-purple-700 text-white px-4 py-3 rounded-xl transition-all duration-200 text-sm font-medium border border-purple-600 hover:border-purple-500 shadow-lg"
+                            title="Alternar Áudio"
+                        >
+                            <i class="fas fa-volume-up" id="audioIcon"></i>
+                        </button>
                         <button 
                             id="databaseBtn"
                             class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-xl transition-all duration-200 text-sm font-medium border border-gray-600 hover:border-gray-500 shadow-lg"
@@ -1492,7 +1429,7 @@
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Canva -->
-                    <div class="group relative bg-black border border-gray-800 rounded-2xl p-8 hover:border-gray-600 transition-all duration-500 cursor-pointer transform hover:scale-105 shadow-2xl neon-purple-border neon-pulse" onclick="window.open('https://www.canva.com', '_blank')">
+                    <div class="group relative bg-black border border-gray-800 rounded-2xl p-8 hover:border-gray-600 transition-all duration-500 cursor-pointer transform hover:scale-105 shadow-2xl" onclick="window.open('https://www.canva.com', '_blank')">
                         <div class="relative text-center">
                             <div class="w-20 h-20 mx-auto mb-6 rounded-2xl overflow-hidden border-2 border-gray-600 bg-white flex items-center justify-center shadow-lg transition-all duration-500">
                                 <svg viewBox="0 0 100 100" class="w-16 h-16">
@@ -1531,6 +1468,74 @@
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="aiToolsGrid">
                     <!-- Ferramentas serão inseridas via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Sites Online -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-white mb-8 flex items-center">
+                    <div class="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-globe text-white"></i>
+                    </div>
+                    Sites Online
+                    <div class="ml-4 h-px bg-gradient-to-r from-green-500 to-transparent flex-1"></div>
+                </h2>
+                
+                <!-- Controles de Sites -->
+                <div class="bg-black border border-gray-800 rounded-2xl p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-plus-circle text-green-400 mr-3"></i>
+                            <span class="text-white font-semibold">Gerenciar Sites</span>
+                        </div>
+                        <button 
+                            id="checkAllSitesBtn"
+                            class="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 hover:from-blue-500/30 hover:to-cyan-500/30 text-blue-300 px-4 py-2 rounded-lg text-sm transition-all duration-200 transform hover:scale-105 border border-blue-500/30 hover:border-blue-400/50"
+                        >
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            Verificar Todos
+                        </button>
+                    </div>
+                    
+                    <!-- Formulário de Adição -->
+                    <form id="addSiteForm" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Nome do Site</label>
+                                <input 
+                                    type="text" 
+                                    id="siteNameInput"
+                                    class="w-full px-4 py-3 bg-black/30 border border-gray-600/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                    placeholder="Ex: Google, YouTube..."
+                                    required
+                                >
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">URL do Site</label>
+                                <input 
+                                    type="url" 
+                                    id="siteUrlInput"
+                                    class="w-full px-4 py-3 bg-black/30 border border-gray-600/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                    placeholder="https://exemplo.com"
+                                    required
+                                >
+                            </div>
+                            <div class="flex items-end">
+                                <button 
+                                    type="submit"
+                                    class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105"
+                                >
+                                    <i class="fas fa-plus mr-2"></i>
+                                    Adicionar Site
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Lista de Sites -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="sitesGrid">
+                    <!-- Sites serão inseridos via JavaScript -->
                 </div>
             </section>
 
@@ -1606,7 +1611,7 @@
 
     <!-- Modal de Edição -->
     <div id="editModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center p-4">
-        <div class="bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-xl rounded-2xl shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden border border-green-500/30 neon-border">
+        <div class="bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-xl rounded-2xl shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden border border-green-500/30">
             <!-- Header do Modal -->
             <div class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 p-6 border-b border-green-500/30">
                 <div class="flex items-center justify-between">
@@ -1677,7 +1682,7 @@
 
     <!-- Modal do Banco de Dados -->
     <div id="databaseModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-lg z-50 flex items-center justify-center p-4">
-        <div class="bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-xl rounded-2xl shadow-2xl w-full max-w-4xl max-h-[80vh] overflow-hidden border border-cyan-500/30 neon-border">
+        <div class="bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-xl rounded-2xl shadow-2xl w-full max-w-4xl max-h-[80vh] overflow-hidden border border-cyan-500/30">
             <!-- Header do Modal -->
             <div class="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 p-6 border-b border-cyan-500/30">
                 <div class="flex items-center justify-between">
@@ -1733,8 +1738,8 @@
     <script>
         // Configurações e constantes
         const CONFIG = {
-            correctPassword: 'U2FsdGVkX1+VictorSecureKey2024EncryptedPasswordHash',
-            maxFailedAttempts: 2,
+            correctPassword: 'Vic20142015@',
+            maxFailedAttempts: 3,
             lockoutDuration: 10000,
             speechRate: 0.85,
             speechPitch: 1.1,
@@ -1779,8 +1784,9 @@
 
         // Sistema de armazenamento local persistente
         const StorageSystem = {
-            // Chave para armazenamento local
+            // Chaves para armazenamento local
             STORAGE_KEY: 'victor_admin_emails_encrypted',
+            SITES_STORAGE_KEY: 'victor_admin_sites_encrypted',
             
             // Salvar e-mails no localStorage
             saveEmails(emails) {
@@ -1804,6 +1810,32 @@
                     return JSON.parse(decrypted);
                 } catch (error) {
                     console.error('Erro ao carregar e-mails:', error);
+                    return null;
+                }
+            },
+
+            // Salvar sites no localStorage
+            saveSites(sites) {
+                try {
+                    const encrypted = this.encryptData(JSON.stringify(sites));
+                    localStorage.setItem(this.SITES_STORAGE_KEY, encrypted);
+                    return true;
+                } catch (error) {
+                    console.error('Erro ao salvar sites:', error);
+                    return false;
+                }
+            },
+            
+            // Carregar sites do localStorage
+            loadSites() {
+                try {
+                    const encrypted = localStorage.getItem(this.SITES_STORAGE_KEY);
+                    if (!encrypted) return null;
+                    
+                    const decrypted = this.decryptData(encrypted);
+                    return JSON.parse(decrypted);
+                } catch (error) {
+                    console.error('Erro ao carregar sites:', error);
                     return null;
                 }
             },
@@ -1836,67 +1868,6 @@
 
         // Sistema de criptografia AES-256
         const CryptoSystem = {
-            // Chave derivada da senha correta (só funciona após login)
-            deriveKey(password) {
-                let hash = 0;
-                for (let i = 0; i < password.length; i++) {
-                    const char = password.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + char;
-                    hash = hash & hash; // Convert to 32-bit integer
-                }
-                return Math.abs(hash).toString(16).padStart(8, '0');
-            },
-
-            // Descriptografia XOR avançada com múltiplas camadas
-            decrypt(encryptedData, key) {
-                try {
-                    // Remover prefixo Base64 fake
-                    const cleanData = encryptedData.replace('U2FsdGVkX1+', '');
-                    
-                    // Decodificar de Base64
-                    const decoded = atob(cleanData);
-                    
-                    // Aplicar XOR com chave derivada
-                    let result = '';
-                    const keyHash = this.deriveKey(key);
-                    
-                    for (let i = 0; i < decoded.length; i++) {
-                        const keyChar = keyHash.charCodeAt(i % keyHash.length);
-                        const decodedChar = decoded.charCodeAt(i);
-                        result += String.fromCharCode(decodedChar ^ keyChar);
-                    }
-                    
-                    return result;
-                } catch (error) {
-                    return null;
-                }
-            },
-
-            // Descriptografar senha de acesso
-            decryptPassword(encryptedPassword) {
-                try {
-                    // Sistema de criptografia personalizado para Vic20142015@
-                    if (encryptedPassword === 'U2FsdGVkX1+VictorSecureKey2024EncryptedPasswordHash') {
-                        return 'Vic20142015@';
-                    }
-                    
-                    // Fallback para outros métodos de criptografia
-                    const decoded = atob(encryptedPassword.replace('U2FsdGVkX1+', ''));
-                    let result = '';
-                    const key = 'VictorKey2024';
-                    
-                    for (let i = 0; i < decoded.length; i++) {
-                        const keyChar = key.charCodeAt(i % key.length);
-                        const decodedChar = decoded.charCodeAt(i);
-                        result += String.fromCharCode(decodedChar ^ keyChar);
-                    }
-                    
-                    return result;
-                } catch (error) {
-                    return null;
-                }
-            },
-
             // Descriptografar lista completa (só funciona com senha correta)
             decryptEmailList(password) {
                 // Validar se a senha digitada é exatamente Vic20142015@
@@ -1948,34 +1919,284 @@
             audioContext: null,
             intervals: new Set(),
             isAuthenticated: false,
-            decryptedEmails: []
+            decryptedEmails: [],
+            monitoredSites: [],
+            isTyping: false
+        };
+
+        // Sistema de Monitoramento de Sites
+        const SiteMonitoringSystem = {
+            // Carregar sites salvos
+            loadSites() {
+                if (!AppState.isAuthenticated) return [];
+                
+                const savedSites = StorageSystem.loadSites();
+                if (savedSites && savedSites.length > 0) {
+                    return savedSites;
+                }
+
+                // Sites padrão iniciais
+                const defaultSites = [
+                    { name: 'Google', url: 'https://www.google.com', status: 'unknown', responseTime: null, lastCheck: null },
+                    { name: 'YouTube', url: 'https://www.youtube.com', status: 'unknown', responseTime: null, lastCheck: null },
+                    { name: 'GitHub', url: 'https://github.com', status: 'unknown', responseTime: null, lastCheck: null }
+                ];
+
+                StorageSystem.saveSites(defaultSites);
+                return defaultSites;
+            },
+
+            // Adicionar novo site
+            addSite(name, url) {
+                if (!AppState.isAuthenticated) return false;
+
+                // Validar URL
+                if (!this.isValidUrl(url)) {
+                    return { success: false, error: 'URL inválida' };
+                }
+
+                // Verificar se já existe
+                const existingSite = AppState.monitoredSites.find(site => 
+                    site.url.toLowerCase() === url.toLowerCase() || 
+                    site.name.toLowerCase() === name.toLowerCase()
+                );
+
+                if (existingSite) {
+                    return { success: false, error: 'Site já existe na lista' };
+                }
+
+                const newSite = {
+                    id: Date.now(),
+                    name: name.trim(),
+                    url: url.trim(),
+                    status: 'unknown',
+                    responseTime: null,
+                    lastCheck: null
+                };
+
+                AppState.monitoredSites.push(newSite);
+                StorageSystem.saveSites(AppState.monitoredSites);
+                
+                return { success: true, site: newSite };
+            },
+
+            // Remover site
+            removeSite(siteId) {
+                if (!AppState.isAuthenticated) return false;
+
+                const index = AppState.monitoredSites.findIndex(site => site.id === siteId);
+                if (index === -1) return false;
+
+                AppState.monitoredSites.splice(index, 1);
+                StorageSystem.saveSites(AppState.monitoredSites);
+                return true;
+            },
+
+            // Verificar status de um site
+            async checkSiteStatus(site) {
+                const startTime = Date.now();
+                
+                try {
+                    // Usar diferentes métodos de verificação
+                    const isOnline = await this.performSiteCheck(site.url);
+                    const responseTime = Date.now() - startTime;
+                    
+                    site.status = isOnline ? 'online' : 'offline';
+                    site.responseTime = responseTime;
+                    site.lastCheck = new Date().toISOString();
+                    
+                    // Salvar alterações
+                    StorageSystem.saveSites(AppState.monitoredSites);
+                    
+                    return { success: true, status: site.status, responseTime };
+                } catch (error) {
+                    site.status = 'offline';
+                    site.responseTime = Date.now() - startTime;
+                    site.lastCheck = new Date().toISOString();
+                    
+                    StorageSystem.saveSites(AppState.monitoredSites);
+                    
+                    return { success: false, error: error.message };
+                }
+            },
+
+            // Realizar verificação do site
+            async performSiteCheck(url) {
+                // Método 1: Tentar fetch com modo no-cors
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 segundos timeout
+                    
+                    const response = await fetch(url, {
+                        method: 'HEAD',
+                        mode: 'no-cors',
+                        signal: controller.signal,
+                        cache: 'no-cache'
+                    });
+                    
+                    clearTimeout(timeoutId);
+                    return true; // Se chegou até aqui, o site está acessível
+                } catch (error) {
+                    // Método 2: Tentar com imagem
+                    return await this.checkViaImage(url);
+                }
+            },
+
+            // Verificação alternativa via imagem
+            checkViaImage(url) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    const timeout = setTimeout(() => {
+                        resolve(false);
+                    }, 8000);
+                    
+                    img.onload = () => {
+                        clearTimeout(timeout);
+                        resolve(true);
+                    };
+                    
+                    img.onerror = () => {
+                        clearTimeout(timeout);
+                        // Mesmo com erro na imagem, o site pode estar online
+                        // Vamos considerar como online se conseguiu fazer a requisição
+                        resolve(true);
+                    };
+                    
+                    // Tentar carregar favicon do site
+                    try {
+                        const domain = new URL(url).origin;
+                        img.src = `${domain}/favicon.ico?${Date.now()}`;
+                    } catch (e) {
+                        resolve(false);
+                    }
+                });
+            },
+
+            // Verificar todos os sites
+            async checkAllSites() {
+                if (!AppState.isAuthenticated || AppState.monitoredSites.length === 0) return;
+
+                // Marcar todos como "verificando"
+                AppState.monitoredSites.forEach(site => {
+                    site.status = 'checking';
+                });
+                
+                UISystem.renderSitesList();
+
+                // Verificar sites em paralelo (máximo 3 por vez para não sobrecarregar)
+                const batchSize = 3;
+                for (let i = 0; i < AppState.monitoredSites.length; i += batchSize) {
+                    const batch = AppState.monitoredSites.slice(i, i + batchSize);
+                    
+                    await Promise.all(batch.map(async (site) => {
+                        const result = await this.checkSiteStatus(site);
+                        
+                        // Mostrar alerta se offline
+                        if (!result.success || site.status === 'offline') {
+                            this.showOfflineAlert(site);
+                        }
+                        
+                        // Atualizar UI
+                        UISystem.renderSitesList();
+                    }));
+                    
+                    // Pequena pausa entre batches
+                    await Utils.delay(500);
+                }
+            },
+
+            // Mostrar alerta para site offline
+            showOfflineAlert(site) {
+                // Criar notificação visual
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'fixed top-4 right-4 bg-red-500/20 border border-red-500/50 text-red-300 px-4 py-3 rounded-lg shadow-lg z-50 max-w-sm';
+                alertDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <div>
+                            <div class="font-semibold">Site Offline Detectado</div>
+                            <div class="text-sm opacity-80">${site.name} não está respondendo</div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(alertDiv);
+                
+                // Remover após 5 segundos
+                setTimeout(() => {
+                    if (alertDiv.parentNode) {
+                        alertDiv.remove();
+                    }
+                }, 5000);
+            },
+
+            // Validar URL
+            isValidUrl(string) {
+                try {
+                    const url = new URL(string);
+                    return url.protocol === 'http:' || url.protocol === 'https:';
+                } catch (_) {
+                    return false;
+                }
+            },
+
+            // Formatar tempo de resposta
+            formatResponseTime(ms) {
+                if (!ms) return 'N/A';
+                if (ms < 1000) return `${ms}ms`;
+                return `${(ms / 1000).toFixed(1)}s`;
+            },
+
+            // Obter cor do status
+            getStatusColor(status) {
+                switch (status) {
+                    case 'online': return 'green';
+                    case 'offline': return 'red';
+                    case 'checking': return 'yellow';
+                    default: return 'gray';
+                }
+            }
+        };
+
+        // Sistema de Engrenagens Interativas
+        const GearSystem = {
+            gears: [],
+            
+            init() {
+                // Obter todas as engrenagens
+                this.gears = [
+                    document.getElementById('gear1'),
+                    document.getElementById('gear2'),
+                    document.getElementById('gear3'),
+                    document.getElementById('gear4'),
+                    document.getElementById('gear5'),
+                    document.getElementById('gear6')
+                ].filter(gear => gear !== null);
+                
+                console.log('Engrenagens encontradas:', this.gears.length);
+            },
+            
+            setIdleState() {
+                this.gears.forEach(gear => {
+                    gear.className = gear.className.replace(/\b(idle|typing|unlocking)\b/g, '').trim() + ' idle';
+                });
+            },
+            
+            setTypingState() {
+                this.gears.forEach(gear => {
+                    gear.className = gear.className.replace(/\b(idle|typing|unlocking)\b/g, '').trim() + ' typing';
+                });
+            },
+            
+            setUnlockingState() {
+                this.gears.forEach(gear => {
+                    gear.className = gear.className.replace(/\b(idle|typing|unlocking)\b/g, '').trim() + ' unlocking';
+                });
+            }
         };
 
         // Utilitários
         const Utils = {
-            getTimeBasedGreeting() {
-                const hour = new Date().getHours();
-                if (hour >= 5 && hour < 12) return 'Bom dia';
-                if (hour >= 12 && hour < 18) return 'Boa tarde';
-                return 'Boa noite';
-            },
-
-            getDetailedTimeInfo() {
-                const now = new Date();
-                const days = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
-                const months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
-                
-                return {
-                    dayName: days[now.getDay()],
-                    day: now.getDate(),
-                    month: months[now.getMonth()],
-                    hour: now.getHours(),
-                    minutes: now.getMinutes().toString().padStart(2, '0'),
-                    period: now.getHours() >= 5 && now.getHours() < 12 ? 'manhã' : 
-                           now.getHours() >= 12 && now.getHours() < 18 ? 'tarde' : 'noite'
-                };
-            },
-
             delay(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
             },
@@ -2023,806 +2244,614 @@
             }
         };
 
-        // Sistema de áudio moderno e realista
+        // Sistema de Áudio Futurista
         const AudioSystem = {
-            getContext() {
-                if (!AppState.audioContext) {
-                    AppState.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            audioContext: null,
+            sounds: {},
+            isEnabled: true,
+            masterVolume: 0.3,
+
+            // Inicializar sistema de áudio
+            async init() {
+                try {
+                    this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    await this.createSounds();
+                    console.log('Sistema de áudio inicializado');
+                } catch (error) {
+                    console.warn('Erro ao inicializar áudio:', error);
+                    this.isEnabled = false;
                 }
-                return AppState.audioContext;
             },
 
-            // Criar sons mais realistas com modulação
-            createModernSound(config) {
-                const context = this.getContext();
-                const { frequency, gain, duration, type = 'sine', modulation = null, filter = null } = config;
-                
-                const osc = context.createOscillator();
-                const gainNode = context.createGain();
-                let filterNode = null;
-                
-                // Configurar oscilador
-                osc.type = type;
-                osc.frequency.setValueAtTime(frequency, context.currentTime);
-                
-                // Adicionar modulação se especificada
-                if (modulation) {
-                    const modOsc = context.createOscillator();
-                    const modGain = context.createGain();
+            // Criar sons sintéticos futuristas
+            async createSounds() {
+                this.sounds = {
+                    // Som de digitação futurista
+                    typing: this.createTypingSound(),
                     
-                    modOsc.type = modulation.type || 'sine';
-                    modOsc.frequency.setValueAtTime(modulation.frequency, context.currentTime);
-                    modGain.gain.setValueAtTime(modulation.depth, context.currentTime);
+                    // Som de login bem-sucedido
+                    loginSuccess: this.createSuccessSound(),
                     
-                    modOsc.connect(modGain);
-                    modGain.connect(osc.frequency);
+                    // Som de erro/falha
+                    loginError: this.createErrorSound(),
                     
-                    modOsc.start(context.currentTime);
-                    modOsc.stop(context.currentTime + duration);
-                }
-                
-                // Adicionar filtro se especificado
-                if (filter) {
-                    filterNode = context.createBiquadFilter();
-                    filterNode.type = filter.type || 'lowpass';
-                    filterNode.frequency.setValueAtTime(filter.frequency, context.currentTime);
-                    filterNode.Q.setValueAtTime(filter.Q || 1, context.currentTime);
+                    // Som de engrenagens girando
+                    gearRotation: this.createGearSound(),
                     
-                    osc.connect(filterNode);
-                    filterNode.connect(gainNode);
-                } else {
-                    osc.connect(gainNode);
-                }
-                
-                gainNode.connect(context.destination);
-                
-                // Envelope ADSR mais natural
-                gainNode.gain.setValueAtTime(0, context.currentTime);
-                gainNode.gain.linearRampToValueAtTime(gain, context.currentTime + 0.01); // Attack
-                gainNode.gain.exponentialRampToValueAtTime(gain * 0.7, context.currentTime + duration * 0.3); // Decay
-                gainNode.gain.setValueAtTime(gain * 0.5, context.currentTime + duration * 0.7); // Sustain
-                gainNode.gain.exponentialRampToValueAtTime(0.001, context.currentTime + duration); // Release
-                
-                osc.start(context.currentTime);
-                osc.stop(context.currentTime + duration);
-                
-                return { osc, gainNode, filterNode };
+                    // Som de desbloqueio
+                    unlock: this.createUnlockSound(),
+                    
+                    // Som de inicialização robótica
+                    robotActivation: this.createRobotSound(),
+                    
+                    // Som de transição
+                    transition: this.createTransitionSound(),
+                    
+                    // Som de hover/clique
+                    buttonHover: this.createButtonHoverSound(),
+                    buttonClick: this.createButtonClickSound(),
+                    
+                    // Som de notificação
+                    notification: this.createNotificationSound(),
+                    
+                    // Som ambiente tecnológico
+                    ambientTech: this.createAmbientSound()
+                };
             },
 
-            // Som de inicialização futurística
-            playFuturisticStartup() {
-                // Som de energia sendo carregada
-                this.createModernSound({
-                    frequency: 40,
-                    gain: 0.15,
-                    duration: 1.2,
-                    type: 'sawtooth',
-                    filter: { type: 'highpass', frequency: 30, Q: 0.5 }
-                });
+            // Som de digitação futurista
+            createTypingSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    const oscillator = this.audioContext.createOscillator();
+                    const gainNode = this.audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(800 + Math.random() * 400, this.audioContext.currentTime);
+                    oscillator.type = 'square';
+                    
+                    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.1, this.audioContext.currentTime + 0.01);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.1);
+                    
+                    oscillator.start(this.audioContext.currentTime);
+                    oscillator.stop(this.audioContext.currentTime + 0.1);
+                };
+            },
 
-                // Harmônicos crescentes
-                setTimeout(() => {
-                    [80, 160, 320, 640].forEach((freq, i) => {
+            // Som de sucesso no login
+            createSuccessSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    const frequencies = [523.25, 659.25, 783.99]; // C5, E5, G5
+                    
+                    frequencies.forEach((freq, index) => {
                         setTimeout(() => {
-                            this.createModernSound({
-                                frequency: freq,
-                                gain: 0.08,
-                                duration: 0.8,
-                                type: 'triangle',
-                                modulation: { frequency: 2, depth: 5, type: 'sine' },
-                                filter: { type: 'bandpass', frequency: freq * 2, Q: 2 }
-                            });
-                        }, i * 150);
+                            const oscillator = this.audioContext.createOscillator();
+                            const gainNode = this.audioContext.createGain();
+                            
+                            oscillator.connect(gainNode);
+                            gainNode.connect(this.audioContext.destination);
+                            
+                            oscillator.frequency.setValueAtTime(freq, this.audioContext.currentTime);
+                            oscillator.type = 'sine';
+                            
+                            gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                            gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.3, this.audioContext.currentTime + 0.1);
+                            gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.8);
+                            
+                            oscillator.start(this.audioContext.currentTime);
+                            oscillator.stop(this.audioContext.currentTime + 0.8);
+                        }, index * 200);
                     });
-                }, 300);
-
-                // Finalização cristalina
-                setTimeout(() => {
-                    this.createModernSound({
-                        frequency: 1200,
-                        gain: 0.12,
-                        duration: 1.5,
-                        type: 'sine',
-                        modulation: { frequency: 0.5, depth: 50, type: 'triangle' },
-                        filter: { type: 'lowpass', frequency: 2000, Q: 1.5 }
-                    });
-                }, 1500);
+                };
             },
 
-            // Som de acesso concedido moderno
-            playAccessGranted() {
-                // Sequência de confirmação
-                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
-                
-                notes.forEach((freq, i) => {
-                    setTimeout(() => {
-                        this.createModernSound({
-                            frequency: freq,
-                            gain: 0.1,
-                            duration: 0.3,
-                            type: 'sine',
-                            filter: { type: 'lowpass', frequency: freq * 3, Q: 1 }
-                        });
-                        
-                        // Harmônico
-                        this.createModernSound({
-                            frequency: freq * 2,
-                            gain: 0.05,
-                            duration: 0.2,
-                            type: 'triangle'
-                        });
-                    }, i * 200);
-                });
-            },
-
-            // Sons robóticos modernos para ativação
-            playModernRobotActivation() {
-                // 1. Som de inicialização do sistema (0-1s)
-                this.createDigitalBootSound();
-                
-                // 2. Engrenagens mecânicas (1-2.5s)
-                setTimeout(() => this.createMechanicalGearSounds(), 1000);
-                
-                // 3. Sistemas eletrônicos ativando (2-3.5s)
-                setTimeout(() => this.createElectronicActivationSounds(), 2000);
-                
-                // 4. Finalização harmônica (3.5-4s)
-                setTimeout(() => this.createHarmonicFinalization(), 3500);
-            },
-
-            createDigitalBootSound() {
-                // Som de boot digital moderno
-                this.createModernSound({
-                    frequency: 55,
-                    gain: 0.12,
-                    duration: 0.8,
-                    type: 'square',
-                    modulation: { frequency: 8, depth: 10, type: 'sawtooth' },
-                    filter: { type: 'highpass', frequency: 40, Q: 0.8 }
-                });
-
-                // Pulsos digitais
-                [0.2, 0.4, 0.6].forEach(delay => {
-                    setTimeout(() => {
-                        this.createModernSound({
-                            frequency: 220,
-                            gain: 0.06,
-                            duration: 0.1,
-                            type: 'square',
-                            filter: { type: 'bandpass', frequency: 440, Q: 3 }
-                        });
-                    }, delay * 1000);
-                });
-            },
-
-            createMechanicalGearSounds() {
-                // Sons de engrenagens realistas
-                const gearFreqs = [85, 127, 170, 255];
-                
-                gearFreqs.forEach((freq, i) => {
-                    setTimeout(() => {
-                        // Som principal da engrenagem
-                        this.createModernSound({
-                            frequency: freq,
-                            gain: 0.08,
-                            duration: 1.2,
-                            type: 'sawtooth',
-                            modulation: { frequency: 3 + i, depth: freq * 0.1, type: 'triangle' },
-                            filter: { type: 'bandpass', frequency: freq * 1.5, Q: 2 }
-                        });
-                        
-                        // Ruído mecânico
-                        this.createMechanicalNoise(freq, 0.8);
-                    }, i * 200);
-                });
-            },
-
-            createMechanicalNoise(centerFreq, duration) {
-                const context = this.getContext();
-                const bufferSize = context.sampleRate * duration;
-                const buffer = context.createBuffer(1, bufferSize, context.sampleRate);
-                const data = buffer.getChannelData(0);
-                
-                // Gerar ruído rosa filtrado (mais natural que ruído branco)
-                let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
-                for (let i = 0; i < bufferSize; i++) {
-                    const white = Math.random() * 2 - 1;
-                    b0 = 0.99886 * b0 + white * 0.0555179;
-                    b1 = 0.99332 * b1 + white * 0.0750759;
-                    b2 = 0.96900 * b2 + white * 0.1538520;
-                    b3 = 0.86650 * b3 + white * 0.3104856;
-                    b4 = 0.55000 * b4 + white * 0.5329522;
-                    b5 = -0.7616 * b5 - white * 0.0168980;
-                    const pink = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
-                    b6 = white * 0.115926;
+            // Som de erro
+            createErrorSound() {
+                return () => {
+                    if (!this.isEnabled) return;
                     
-                    // Modular com frequência central para simular engrenagem
-                    data[i] = pink * 0.03 * Math.sin(2 * Math.PI * centerFreq * i / context.sampleRate);
-                }
-                
-                const source = context.createBufferSource();
-                const filter = context.createBiquadFilter();
-                const gainNode = context.createGain();
-                
-                source.buffer = buffer;
-                filter.type = 'bandpass';
-                filter.frequency.setValueAtTime(centerFreq, context.currentTime);
-                filter.Q.setValueAtTime(4, context.currentTime);
-                
-                gainNode.gain.setValueAtTime(0.04, context.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, context.currentTime + duration);
-                
-                source.connect(filter);
-                filter.connect(gainNode);
-                gainNode.connect(context.destination);
-                
-                source.start(context.currentTime);
-                source.stop(context.currentTime + duration);
+                    const oscillator = this.audioContext.createOscillator();
+                    const gainNode = this.audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(200, this.audioContext.currentTime);
+                    oscillator.frequency.linearRampToValueAtTime(150, this.audioContext.currentTime + 0.5);
+                    oscillator.type = 'sawtooth';
+                    
+                    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.4, this.audioContext.currentTime + 0.1);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.5);
+                    
+                    oscillator.start(this.audioContext.currentTime);
+                    oscillator.stop(this.audioContext.currentTime + 0.5);
+                };
             },
 
-            createElectronicActivationSounds() {
-                // Sons de circuitos ativando
-                const circuitFreqs = [440, 880, 1320, 1760];
-                
-                circuitFreqs.forEach((freq, i) => {
-                    setTimeout(() => {
-                        this.createModernSound({
-                            frequency: freq,
-                            gain: 0.06,
-                            duration: 0.4,
-                            type: 'sine',
-                            modulation: { frequency: 15, depth: freq * 0.05, type: 'square' },
-                            filter: { type: 'lowpass', frequency: freq * 2, Q: 1.5 }
-                        });
-                        
-                        // Eco eletrônico
+            // Som de engrenagens
+            createGearSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    const oscillator = this.audioContext.createOscillator();
+                    const gainNode = this.audioContext.createGain();
+                    const filter = this.audioContext.createBiquadFilter();
+                    
+                    oscillator.connect(filter);
+                    filter.connect(gainNode);
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(100, this.audioContext.currentTime);
+                    oscillator.type = 'sawtooth';
+                    
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(300, this.audioContext.currentTime);
+                    
+                    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.15, this.audioContext.currentTime + 0.1);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.15, this.audioContext.currentTime + 1.5);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 2);
+                    
+                    oscillator.start(this.audioContext.currentTime);
+                    oscillator.stop(this.audioContext.currentTime + 2);
+                };
+            },
+
+            // Som de desbloqueio
+            createUnlockSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    // Sequência de tons ascendentes
+                    const frequencies = [220, 277, 330, 440, 554, 660];
+                    
+                    frequencies.forEach((freq, index) => {
                         setTimeout(() => {
-                            this.createModernSound({
-                                frequency: freq * 1.5,
-                                gain: 0.03,
-                                duration: 0.2,
-                                type: 'triangle'
-                            });
-                        }, 100);
-                    }, i * 150);
-                });
-            },
-
-            createHarmonicFinalization() {
-                // Acorde final harmônico
-                const chord = [261.63, 329.63, 392.00, 523.25]; // C major
-                
-                chord.forEach((freq, i) => {
-                    this.createModernSound({
-                        frequency: freq,
-                        gain: 0.08,
-                        duration: 0.8,
-                        type: 'sine',
-                        filter: { type: 'lowpass', frequency: freq * 4, Q: 0.8 }
+                            const oscillator = this.audioContext.createOscillator();
+                            const gainNode = this.audioContext.createGain();
+                            
+                            oscillator.connect(gainNode);
+                            gainNode.connect(this.audioContext.destination);
+                            
+                            oscillator.frequency.setValueAtTime(freq, this.audioContext.currentTime);
+                            oscillator.type = 'triangle';
+                            
+                            gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                            gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.2, this.audioContext.currentTime + 0.05);
+                            gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.3);
+                            
+                            oscillator.start(this.audioContext.currentTime);
+                            oscillator.stop(this.audioContext.currentTime + 0.3);
+                        }, index * 100);
                     });
-                });
-                
-                // Reverb sintético
-                setTimeout(() => {
-                    chord.forEach(freq => {
-                        this.createModernSound({
-                            frequency: freq * 2,
-                            gain: 0.03,
-                            duration: 1.2,
-                            type: 'triangle',
-                            filter: { type: 'highpass', frequency: freq, Q: 0.5 }
-                        });
+                };
+            },
+
+            // Som de ativação robótica
+            createRobotSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    // Som complexo de inicialização
+                    const createRobotTone = (freq, delay, duration) => {
+                        setTimeout(() => {
+                            const oscillator = this.audioContext.createOscillator();
+                            const gainNode = this.audioContext.createGain();
+                            const filter = this.audioContext.createBiquadFilter();
+                            
+                            oscillator.connect(filter);
+                            filter.connect(gainNode);
+                            gainNode.connect(this.audioContext.destination);
+                            
+                            oscillator.frequency.setValueAtTime(freq, this.audioContext.currentTime);
+                            oscillator.frequency.linearRampToValueAtTime(freq * 1.5, this.audioContext.currentTime + duration);
+                            oscillator.type = 'square';
+                            
+                            filter.type = 'bandpass';
+                            filter.frequency.setValueAtTime(freq * 2, this.audioContext.currentTime);
+                            
+                            gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                            gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.25, this.audioContext.currentTime + 0.1);
+                            gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + duration);
+                            
+                            oscillator.start(this.audioContext.currentTime);
+                            oscillator.stop(this.audioContext.currentTime + duration);
+                        }, delay);
+                    };
+                    
+                    // Sequência de sons robóticos
+                    createRobotTone(150, 0, 0.8);
+                    createRobotTone(200, 300, 0.6);
+                    createRobotTone(250, 600, 0.4);
+                    createRobotTone(300, 900, 0.5);
+                    createRobotTone(400, 1200, 0.7);
+                };
+            },
+
+            // Som de transição
+            createTransitionSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    const oscillator = this.audioContext.createOscillator();
+                    const gainNode = this.audioContext.createGain();
+                    const filter = this.audioContext.createBiquadFilter();
+                    
+                    oscillator.connect(filter);
+                    filter.connect(gainNode);
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(440, this.audioContext.currentTime);
+                    oscillator.frequency.exponentialRampToValueAtTime(880, this.audioContext.currentTime + 1);
+                    oscillator.type = 'sine';
+                    
+                    filter.type = 'highpass';
+                    filter.frequency.setValueAtTime(200, this.audioContext.currentTime);
+                    filter.frequency.linearRampToValueAtTime(800, this.audioContext.currentTime + 1);
+                    
+                    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.2, this.audioContext.currentTime + 0.2);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 1);
+                    
+                    oscillator.start(this.audioContext.currentTime);
+                    oscillator.stop(this.audioContext.currentTime + 1);
+                };
+            },
+
+            // Som de hover do botão
+            createButtonHoverSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    const oscillator = this.audioContext.createOscillator();
+                    const gainNode = this.audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(600, this.audioContext.currentTime);
+                    oscillator.type = 'sine';
+                    
+                    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.1, this.audioContext.currentTime + 0.05);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.2);
+                    
+                    oscillator.start(this.audioContext.currentTime);
+                    oscillator.stop(this.audioContext.currentTime + 0.2);
+                };
+            },
+
+            // Som de clique do botão
+            createButtonClickSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    const oscillator = this.audioContext.createOscillator();
+                    const gainNode = this.audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(800, this.audioContext.currentTime);
+                    oscillator.frequency.exponentialRampToValueAtTime(400, this.audioContext.currentTime + 0.1);
+                    oscillator.type = 'square';
+                    
+                    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.2, this.audioContext.currentTime + 0.01);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.1);
+                    
+                    oscillator.start(this.audioContext.currentTime);
+                    oscillator.stop(this.audioContext.currentTime + 0.1);
+                };
+            },
+
+            // Som de notificação
+            createNotificationSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    const frequencies = [523, 659, 784]; // C, E, G
+                    
+                    frequencies.forEach((freq, index) => {
+                        setTimeout(() => {
+                            const oscillator = this.audioContext.createOscillator();
+                            const gainNode = this.audioContext.createGain();
+                            
+                            oscillator.connect(gainNode);
+                            gainNode.connect(this.audioContext.destination);
+                            
+                            oscillator.frequency.setValueAtTime(freq, this.audioContext.currentTime);
+                            oscillator.type = 'sine';
+                            
+                            gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                            gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.15, this.audioContext.currentTime + 0.05);
+                            gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.3);
+                            
+                            oscillator.start(this.audioContext.currentTime);
+                            oscillator.stop(this.audioContext.currentTime + 0.3);
+                        }, index * 150);
                     });
-                }, 200);
+                };
             },
 
-            // Som de erro moderno
-            playModernError() {
-                // Tom descendente de erro
-                this.createModernSound({
-                    frequency: 800,
-                    gain: 0.1,
-                    duration: 0.5,
-                    type: 'sawtooth',
-                    modulation: { frequency: 0.5, depth: -200, type: 'sine' },
-                    filter: { type: 'lowpass', frequency: 1200, Q: 2 }
-                });
+            // Som ambiente tecnológico
+            createAmbientSound() {
+                return () => {
+                    if (!this.isEnabled) return;
+                    
+                    const oscillator = this.audioContext.createOscillator();
+                    const gainNode = this.audioContext.createGain();
+                    const filter = this.audioContext.createBiquadFilter();
+                    
+                    oscillator.connect(filter);
+                    filter.connect(gainNode);
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(60, this.audioContext.currentTime);
+                    oscillator.type = 'sine';
+                    
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(120, this.audioContext.currentTime);
+                    
+                    gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.05, this.audioContext.currentTime + 2);
+                    gainNode.gain.linearRampToValueAtTime(this.masterVolume * 0.05, this.audioContext.currentTime + 8);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 10);
+                    
+                    oscillator.start(this.audioContext.currentTime);
+                    oscillator.stop(this.audioContext.currentTime + 10);
+                };
+            },
+
+            // Reproduzir som
+            play(soundName) {
+                if (!this.isEnabled || !this.sounds[soundName]) return;
                 
-                // Pulso de alerta
-                setTimeout(() => {
-                    this.createModernSound({
-                        frequency: 400,
-                        gain: 0.08,
-                        duration: 0.3,
-                        type: 'square',
-                        filter: { type: 'bandpass', frequency: 600, Q: 3 }
-                    });
-                }, 300);
+                try {
+                    // Retomar contexto de áudio se necessário
+                    if (this.audioContext.state === 'suspended') {
+                        this.audioContext.resume();
+                    }
+                    
+                    this.sounds[soundName]();
+                } catch (error) {
+                    console.warn('Erro ao reproduzir som:', error);
+                }
             },
 
-            // Som de clique moderno
-            playModernClick() {
-                this.createModernSound({
-                    frequency: 1200,
-                    gain: 0.05,
-                    duration: 0.1,
-                    type: 'sine',
-                    filter: { type: 'highpass', frequency: 800, Q: 1 }
-                });
-                
-                // Harmônico sutil
-                this.createModernSound({
-                    frequency: 2400,
-                    gain: 0.02,
-                    duration: 0.05,
-                    type: 'triangle'
-                });
+            // Alternar áudio
+            toggle() {
+                this.isEnabled = !this.isEnabled;
+                return this.isEnabled;
             },
 
-            // Som de hover moderno
-            playModernHover() {
-                this.createModernSound({
-                    frequency: 600,
-                    gain: 0.03,
-                    duration: 0.15,
-                    type: 'sine',
-                    modulation: { frequency: 8, depth: 20, type: 'sine' },
-                    filter: { type: 'lowpass', frequency: 1200, Q: 1 }
-                });
+            // Definir volume
+            setVolume(volume) {
+                this.masterVolume = Math.max(0, Math.min(1, volume));
             }
         };
 
-        // Sistema de Ativação Robótica
-        const RobotActivationSystem = {
-            async activateRobot() {
+        // Sistema de autenticação
+        const AuthSystem = {
+            async authenticate(password) {
+                try {
+                    console.log('Tentativa de autenticação com senha:', password);
+                    console.log('Senha correta esperada:', CONFIG.correctPassword);
+                    
+                    // Verificar se o sistema está bloqueado
+                    if (AppState.isLocked) {
+                        this.showMessage('Sistema temporariamente bloqueado. Tente novamente em alguns segundos.', 'error');
+                        return false;
+                    }
+
+                    // Limpar espaços em branco e verificar senha
+                    const cleanPassword = password.trim();
+                    const correctPassword = CONFIG.correctPassword.trim();
+                    
+                    console.log('Senha limpa:', cleanPassword);
+                    console.log('Comparação:', cleanPassword === correctPassword);
+
+                    // Verificar diretamente a senha correta
+                    if (cleanPassword === correctPassword) {
+                        console.log('Senha correta! Iniciando autenticação...');
+                        
+                        // Reproduzir som de sucesso
+                        AudioSystem.play('loginSuccess');
+                        
+                        // Ativar estado de desbloqueio das engrenagens
+                        GearSystem.setUnlockingState();
+                        
+                        // Som de desbloqueio
+                        setTimeout(() => AudioSystem.play('unlock'), 800);
+                        
+                        // Autenticação bem-sucedida
+                        AppState.isAuthenticated = true;
+                        AppState.failedAttempts = 0;
+                        
+                        // Descriptografar lista de e-mails
+                        AppState.decryptedEmails = CryptoSystem.decryptEmailList(cleanPassword);
+                        
+                        // Carregar sites monitorados
+                        AppState.monitoredSites = SiteMonitoringSystem.loadSites();
+                        
+                        this.showMessage('Autenticação confirmada! Bem-vindo ao sistema.', 'success');
+                        
+                        // Aguardar um pouco para mostrar o efeito de desbloqueio
+                        await Utils.delay(2000);
+                        
+                        // Ativar animação robótica
+                        await this.activateRobotSequence();
+                        
+                        // Transição para painel principal
+                        await this.transitionToMainPanel();
+                        
+                        return true;
+                    } else {
+                        console.log('Senha incorreta!');
+                        
+                        // Reproduzir som de erro
+                        AudioSystem.play('loginError');
+                        
+                        // Senha incorreta
+                        AppState.failedAttempts++;
+                        Utils.updateAttemptCounter();
+                        
+                        // Ativar luzes de segurança
+                        this.activateSecurityLights();
+                        
+                        if (AppState.failedAttempts >= CONFIG.maxFailedAttempts) {
+                            await this.lockSystem();
+                        } else {
+                            const remaining = CONFIG.maxFailedAttempts - AppState.failedAttempts;
+                            this.showMessage(`Acesso negado. ${remaining} tentativa(s) restante(s).`, 'error');
+                        }
+                        
+                        // Voltar ao estado idle das engrenagens
+                        GearSystem.setIdleState();
+                        
+                        return false;
+                    }
+                } catch (error) {
+                    console.error('Erro na autenticação:', error);
+                    this.showMessage('Erro interno do sistema. Tente novamente.', 'error');
+                    GearSystem.setIdleState();
+                    return false;
+                }
+            },
+
+            async activateRobotSequence() {
                 const overlay = document.getElementById('robotActivationOverlay');
-                
-                // Mostrar overlay
                 overlay.classList.add('active');
                 
-                // Iniciar sons robóticos modernos
-                AudioSystem.playModernRobotActivation();
+                // Reproduzir som de ativação robótica
+                AudioSystem.play('robotActivation');
                 
                 // Aguardar animação completa (4 segundos)
                 await Utils.delay(4000);
                 
-                // Som de finalização
-                AudioSystem.playAccessGranted();
-                
-                // Ocultar overlay
                 overlay.classList.remove('active');
+            },
+
+            async transitionToMainPanel() {
+                const loginScreen = document.getElementById('loginScreen');
+                const adminPanel = document.getElementById('adminPanel');
                 
-                // Aguardar transição
+                // Som de transição
+                AudioSystem.play('transition');
+                
+                // Fade out da tela de login
+                loginScreen.style.transition = 'opacity 0.5s ease-out';
+                loginScreen.style.opacity = '0';
+                
                 await Utils.delay(500);
-            }
-        };
-
-        // Sistema de efeitos sonoros tecnológicos e futuristas
-        const SoundEffectsSystem = {
-            // Configurações de personalidade sonora
-            personality: {
-                name: 'NEXUS', // Neural Executive eXtended Unified System
-                style: 'technological_futuristic', // Estilo tecnológico futurista
-                mood: 'synthetic', // synthetic, digital, electronic, cybernetic
-                complexity: 'advanced' // Complexidade dos efeitos sonoros
+                
+                // Trocar telas
+                loginScreen.classList.add('hidden');
+                adminPanel.classList.remove('hidden');
+                
+                // Fade in do painel admin
+                adminPanel.style.opacity = '0';
+                adminPanel.style.transition = 'opacity 0.5s ease-in';
+                
+                await Utils.delay(50);
+                adminPanel.style.opacity = '1';
+                
+                // Inicializar sistemas do painel
+                UISystem.initializeAdminPanel();
+                
+                // Som ambiente tecnológico no painel
+                setTimeout(() => AudioSystem.play('ambientTech'), 1000);
             },
 
-            // Efeitos sonoros para diferentes ações
-            playWelcomeSequence() {
-                // Sequência de boas-vindas tecnológica
-                this.playSystemBootComplete();
-                setTimeout(() => this.playDataStreamActivation(), 800);
-                setTimeout(() => this.playSecurityProtocolActive(), 1600);
-            },
-
-            playIntruderAlert() {
-                // Alerta de segurança com múltiplos tons
-                this.playSecurityBreach();
-                setTimeout(() => this.playAlarmPulse(), 300);
-                setTimeout(() => this.playSystemLockdown(), 600);
-            },
-
-            playDatabaseAccess() {
-                // Sons de acesso ao banco de dados
-                this.playDataDecryption();
-                setTimeout(() => this.playDatabaseConnection(), 400);
-                setTimeout(() => this.playDataStreamFlow(), 800);
-            },
-
-            playLogoutSequence() {
-                // Sequência de logout
-                this.playSessionTermination();
-                setTimeout(() => this.playDataWipe(), 500);
-                setTimeout(() => this.playSystemStandby(), 1000);
-            },
-
-            playEmailCopied() {
-                // Som de cópia de dados
-                this.playDataTransfer();
-                setTimeout(() => this.playClipboardSync(), 200);
-            },
-
-            playEditMode() {
-                // Som de ativação do modo de edição
-                this.playEditorActivation();
-                setTimeout(() => this.playDatabaseUnlock(), 300);
-            },
-
-            playEmailAdded() {
-                // Som de adição de registro
-                this.playDataInsertion();
-                setTimeout(() => this.playIndexUpdate(), 250);
-            },
-
-            playEmailRemoved() {
-                // Som de remoção de registro
-                this.playDataDeletion();
-                setTimeout(() => this.playSystemCleanup(), 300);
-            },
-
-            playAllEmailsCopied() {
-                // Som de exportação em massa
-                this.playBulkExport();
-                setTimeout(() => this.playCompressionActive(), 400);
-                setTimeout(() => this.playTransferComplete(), 800);
-            },
-
-            // Efeitos sonoros específicos
-            playSystemBootComplete() {
-                AudioSystem.createModernSound({
-                    frequency: 220,
-                    gain: 0.08,
-                    duration: 0.6,
-                    type: 'sine',
-                    modulation: { frequency: 4, depth: 20, type: 'triangle' },
-                    filter: { type: 'lowpass', frequency: 880, Q: 1.2 }
-                });
-            },
-
-            playDataStreamActivation() {
-                AudioSystem.createModernSound({
-                    frequency: 440,
-                    gain: 0.06,
-                    duration: 0.8,
-                    type: 'sawtooth',
-                    modulation: { frequency: 8, depth: 40, type: 'sine' },
-                    filter: { type: 'bandpass', frequency: 660, Q: 2 }
-                });
-            },
-
-            playSecurityProtocolActive() {
-                AudioSystem.createModernSound({
-                    frequency: 880,
-                    gain: 0.05,
-                    duration: 0.4,
-                    type: 'triangle',
-                    filter: { type: 'highpass', frequency: 440, Q: 1 }
-                });
-            },
-
-            playSecurityBreach() {
-                AudioSystem.createModernSound({
-                    frequency: 150,
-                    gain: 0.12,
-                    duration: 0.8,
-                    type: 'square',
-                    modulation: { frequency: 2, depth: 50, type: 'sawtooth' },
-                    filter: { type: 'lowpass', frequency: 600, Q: 3 }
-                });
-            },
-
-            playAlarmPulse() {
-                for (let i = 0; i < 3; i++) {
-                    setTimeout(() => {
-                        AudioSystem.createModernSound({
-                            frequency: 800,
-                            gain: 0.08,
-                            duration: 0.15,
-                            type: 'square',
-                            filter: { type: 'bandpass', frequency: 1200, Q: 4 }
-                        });
-                    }, i * 200);
+            showMessage(text, type) {
+                const errorMsg = document.getElementById('errorMessage');
+                const successMsg = document.getElementById('welcomeMessage');
+                
+                // Esconder todas as mensagens primeiro
+                errorMsg.classList.add('hidden');
+                successMsg.classList.add('hidden');
+                
+                // Mostrar mensagem apropriada
+                if (type === 'error') {
+                    errorMsg.querySelector('span').textContent = text;
+                    errorMsg.classList.remove('hidden');
+                } else if (type === 'success') {
+                    successMsg.querySelector('span').textContent = text;
+                    successMsg.classList.remove('hidden');
                 }
             },
 
-            playSystemLockdown() {
-                AudioSystem.createModernSound({
-                    frequency: 100,
-                    gain: 0.1,
-                    duration: 1.2,
-                    type: 'sawtooth',
-                    modulation: { frequency: 0.5, depth: -30, type: 'sine' },
-                    filter: { type: 'lowpass', frequency: 300, Q: 2 }
-                });
-            },
-
-            playDataDecryption() {
-                // Som de descriptografia de dados
-                const frequencies = [330, 440, 550, 660];
-                frequencies.forEach((freq, i) => {
-                    setTimeout(() => {
-                        AudioSystem.createModernSound({
-                            frequency: freq,
-                            gain: 0.04,
-                            duration: 0.3,
-                            type: 'sine',
-                            modulation: { frequency: 12, depth: freq * 0.1, type: 'triangle' },
-                            filter: { type: 'bandpass', frequency: freq * 1.5, Q: 2 }
-                        });
-                    }, i * 100);
-                });
-            },
-
-            playDatabaseConnection() {
-                AudioSystem.createModernSound({
-                    frequency: 200,
-                    gain: 0.07,
-                    duration: 0.6,
-                    type: 'triangle',
-                    modulation: { frequency: 6, depth: 25, type: 'sine' },
-                    filter: { type: 'lowpass', frequency: 800, Q: 1.5 }
-                });
-            },
-
-            playDataStreamFlow() {
-                AudioSystem.createModernSound({
-                    frequency: 1000,
-                    gain: 0.05,
-                    duration: 1.0,
-                    type: 'sawtooth',
-                    modulation: { frequency: 15, depth: 100, type: 'triangle' },
-                    filter: { type: 'bandpass', frequency: 1500, Q: 1.8 }
-                });
-            },
-
-            playSessionTermination() {
-                AudioSystem.createModernSound({
-                    frequency: 600,
-                    gain: 0.08,
-                    duration: 0.7,
-                    type: 'sine',
-                    modulation: { frequency: 1, depth: -200, type: 'sine' },
-                    filter: { type: 'lowpass', frequency: 900, Q: 1.2 }
-                });
-            },
-
-            playDataWipe() {
-                AudioSystem.createModernSound({
-                    frequency: 1200,
-                    gain: 0.06,
-                    duration: 0.5,
-                    type: 'square',
-                    modulation: { frequency: 20, depth: -400, type: 'sawtooth' },
-                    filter: { type: 'highpass', frequency: 600, Q: 2 }
-                });
-            },
-
-            playSystemStandby() {
-                AudioSystem.createModernSound({
-                    frequency: 110,
-                    gain: 0.04,
-                    duration: 1.5,
-                    type: 'sine',
-                    filter: { type: 'lowpass', frequency: 220, Q: 0.8 }
-                });
-            },
-
-            playDataTransfer() {
-                AudioSystem.createModernSound({
-                    frequency: 800,
-                    gain: 0.05,
-                    duration: 0.3,
-                    type: 'triangle',
-                    modulation: { frequency: 10, depth: 50, type: 'sine' },
-                    filter: { type: 'bandpass', frequency: 1200, Q: 2.5 }
-                });
-            },
-
-            playClipboardSync() {
-                AudioSystem.createModernSound({
-                    frequency: 1600,
-                    gain: 0.04,
-                    duration: 0.2,
-                    type: 'sine',
-                    filter: { type: 'highpass', frequency: 800, Q: 1 }
-                });
-            },
-
-            playEditorActivation() {
-                AudioSystem.createModernSound({
-                    frequency: 440,
-                    gain: 0.06,
-                    duration: 0.5,
-                    type: 'triangle',
-                    modulation: { frequency: 5, depth: 30, type: 'sine' },
-                    filter: { type: 'bandpass', frequency: 660, Q: 1.8 }
-                });
-            },
-
-            playDatabaseUnlock() {
-                AudioSystem.createModernSound({
-                    frequency: 880,
-                    gain: 0.05,
-                    duration: 0.4,
-                    type: 'sine',
-                    filter: { type: 'lowpass', frequency: 1320, Q: 1.2 }
-                });
-            },
-
-            playDataInsertion() {
-                AudioSystem.createModernSound({
-                    frequency: 660,
-                    gain: 0.06,
-                    duration: 0.4,
-                    type: 'triangle',
-                    modulation: { frequency: 8, depth: 40, type: 'sine' },
-                    filter: { type: 'bandpass', frequency: 990, Q: 2 }
-                });
-            },
-
-            playIndexUpdate() {
-                AudioSystem.createModernSound({
-                    frequency: 1320,
-                    gain: 0.04,
-                    duration: 0.25,
-                    type: 'sine',
-                    filter: { type: 'highpass', frequency: 660, Q: 1.5 }
-                });
-            },
-
-            playDataDeletion() {
-                AudioSystem.createModernSound({
-                    frequency: 400,
-                    gain: 0.07,
-                    duration: 0.5,
-                    type: 'sawtooth',
-                    modulation: { frequency: 3, depth: -100, type: 'sine' },
-                    filter: { type: 'lowpass', frequency: 800, Q: 2 }
-                });
-            },
-
-            playSystemCleanup() {
-                AudioSystem.createModernSound({
-                    frequency: 200,
-                    gain: 0.05,
-                    duration: 0.6,
-                    type: 'triangle',
-                    filter: { type: 'lowpass', frequency: 400, Q: 1 }
-                });
-            },
-
-            playBulkExport() {
-                // Sequência de tons para exportação em massa
-                const exportFreqs = [220, 330, 440, 550, 660];
-                exportFreqs.forEach((freq, i) => {
-                    setTimeout(() => {
-                        AudioSystem.createModernSound({
-                            frequency: freq,
-                            gain: 0.05,
-                            duration: 0.2,
-                            type: 'sine',
-                            filter: { type: 'bandpass', frequency: freq * 1.5, Q: 2 }
-                        });
-                    }, i * 80);
-                });
-            },
-
-            playCompressionActive() {
-                AudioSystem.createModernSound({
-                    frequency: 1000,
-                    gain: 0.06,
-                    duration: 0.8,
-                    type: 'sawtooth',
-                    modulation: { frequency: 25, depth: 200, type: 'triangle' },
-                    filter: { type: 'bandpass', frequency: 1500, Q: 3 }
-                });
-            },
-
-            playTransferComplete() {
-                AudioSystem.createModernSound({
-                    frequency: 880,
-                    gain: 0.07,
-                    duration: 0.6,
-                    type: 'sine',
-                    filter: { type: 'lowpass', frequency: 1760, Q: 1.2 }
-                });
-            }
-        };
-
-        // Sistema de segurança
-        const SecuritySystem = {
-            activateLights() {
+            activateSecurityLights() {
                 const lights = document.querySelectorAll('.security-light');
-                let lightIndex = 0;
-                let isActive = true;
+                lights.forEach((light, index) => {
+                    setTimeout(() => {
+                        light.classList.add('active');
+                        setTimeout(() => light.classList.remove('active'), 500);
+                    }, index * 100);
+                });
+            },
 
-                const interval = setInterval(() => {
-                    if (!isActive) {
-                        clearInterval(interval);
-                        lights.forEach(light => light.classList.remove('active'));
-                        return;
-                    }
-
-                    lights.forEach(light => light.classList.remove('active'));
-                    lights[lightIndex].classList.add('active');
-                    lightIndex = (lightIndex + 1) % lights.length;
-                }, 200);
-
-                AppState.intervals.add(interval);
-
+            async lockSystem() {
+                AppState.isLocked = true;
+                this.showMessage(`Sistema bloqueado por ${CONFIG.lockoutDuration / 1000} segundos devido a múltiplas tentativas falhadas.`, 'error');
+                
+                const button = document.getElementById('loginButton');
+                const input = document.getElementById('passwordInput');
+                
+                button.disabled = true;
+                input.disabled = true;
+                
+                // Adicionar efeito visual de bloqueio
+                const container = document.querySelector('.tech-login-container');
+                container.classList.add('shake');
+                
                 setTimeout(() => {
-                    isActive = false;
-                    AppState.intervals.delete(interval);
-                }, 10000);
-            },
-
-            lockSystem() {
-                const passwordField = document.getElementById('passwordInput');
-                const loginButton = document.getElementById('loginButton');
-                const errorMessage = document.getElementById('errorMessage');
-
-                // Som de erro moderno
-                AudioSystem.playModernError();
-
-                // Visual feedback
-                passwordField.style.borderColor = '#ed4956';
-                passwordField.classList.add('shake');
-                passwordField.disabled = true;
-                passwordField.value = '';
-
-                // Button feedback
-                loginButton.disabled = true;
-                loginButton.textContent = 'Sistema Bloqueado';
-                loginButton.style.background = '#b2dffc';
-
-                // Error message
-                errorMessage.textContent = 'Muitas tentativas. Aguarde para tentar novamente.';
-                errorMessage.classList.remove('hidden');
-
-                // Activate security measures
-                SoundEffectsSystem.playIntruderAlert();
-
-                // Unlock after timeout
-                setTimeout(() => this.unlockSystem(), CONFIG.lockoutDuration);
-            },
-
-            unlockSystem() {
-                const passwordField = document.getElementById('passwordInput');
-                const loginButton = document.getElementById('loginButton');
-                const errorMessage = document.getElementById('errorMessage');
-
-                passwordField.disabled = false;
-                passwordField.style.borderColor = '';
-                passwordField.classList.remove('shake');
-
-                loginButton.disabled = false;
-                loginButton.textContent = 'Entrar';
-                loginButton.style.background = '';
-
-                errorMessage.classList.add('hidden');
-                AppState.failedAttempts = 0;
-                AppState.isLocked = false;
-
-                passwordField.focus();
+                    container.classList.remove('shake');
+                }, 500);
+                
+                // Desbloquear após o tempo configurado
+                setTimeout(() => {
+                    AppState.isLocked = false;
+                    AppState.failedAttempts = 0;
+                    button.disabled = false;
+                    input.disabled = false;
+                    Utils.updateAttemptCounter();
+                    this.showMessage('Sistema desbloqueado. Você pode tentar novamente.', 'success');
+                    GearSystem.setIdleState();
+                }, CONFIG.lockoutDuration);
             }
         };
 
-        // Sistema de UI
+        // Sistema de Interface do Usuário
         const UISystem = {
+            initializeAdminPanel() {
+                this.renderAITools();
+                this.renderEmailList();
+                this.renderSitesList();
+                this.setupEventListeners();
+            },
+
             renderAITools() {
-                const container = document.getElementById('aiToolsGrid');
-                
-                container.innerHTML = AI_TOOLS.map(tool => `
-                    <div class="group relative bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-xl rounded-2xl p-8 neon-border hover:border-${tool.color}-400/50 transition-all duration-500 cursor-pointer transform hover:scale-105 shadow-2xl hover:shadow-${tool.color}-500/20 neon-purple-border neon-pulse" onclick="window.open('${tool.url}', '_blank')">
-                        <div class="absolute inset-0 bg-gradient-to-br from-${tool.color}-500/5 to-${tool.color}-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                const grid = document.getElementById('aiToolsGrid');
+                if (!grid) return;
+
+                grid.innerHTML = AI_TOOLS.map(tool => `
+                    <div class="group relative bg-black border border-gray-800 rounded-2xl p-8 hover:border-gray-600 transition-all duration-500 cursor-pointer transform hover:scale-105 shadow-2xl" onclick="window.open('${tool.url}', '_blank')">
                         <div class="relative text-center">
-                            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl border-2 border-${tool.color}-400 bg-gradient-to-br from-${tool.color}-500 to-${tool.color}-600 flex items-center justify-center shadow-lg shadow-${tool.color}-500/30 group-hover:shadow-${tool.color}-400/50 transition-all duration-500">
+                            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl overflow-hidden border-2 border-gray-600 bg-gradient-to-br from-${tool.color}-500 to-${tool.color}-700 flex items-center justify-center shadow-lg transition-all duration-500">
                                 <i class="${tool.icon} text-white text-2xl"></i>
                             </div>
-                            <h3 class="text-white font-bold text-xl mb-3 group-hover:text-${tool.color}-300 transition-colors duration-300">${tool.name}</h3>
-                            <p class="text-gray-400 text-sm mb-4 group-hover:text-gray-300 transition-colors duration-300">${tool.description}</p>
-                            <div class="bg-gradient-to-r from-${tool.color}-500/20 to-${tool.color}-500/20 text-${tool.color}-300 px-4 py-2 rounded-xl text-sm border border-${tool.color}-500/30 group-hover:border-${tool.color}-400/50 transition-all duration-300">
-                                <i class="${tool.icon} mr-2"></i>
+                            <h3 class="text-white font-bold text-xl mb-3 transition-colors duration-300">${tool.name}</h3>
+                            <p class="text-gray-400 text-sm mb-4 transition-colors duration-300">${tool.description}</p>
+                            <div class="bg-gray-800 text-white px-4 py-2 rounded-xl text-sm border border-gray-600 hover:border-gray-500 transition-all duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>
                                 ${tool.buttonText}
                             </div>
                         </div>
@@ -2830,630 +2859,413 @@
                 `).join('');
             },
 
-            renderEmailList(emailList = []) {
-                const container = document.getElementById('emailList');
-                const countElement = document.getElementById('emailCount');
+            renderEmailList() {
+                const emailList = document.getElementById('emailList');
+                const emailCount = document.getElementById('emailCount');
+                const editableEmailList = document.getElementById('editableEmailList');
                 
-                if (emailList.length === 0) {
-                    container.innerHTML = `
-                        <div class="text-center py-8">
-                            <i class="fas fa-lock text-red-400 text-4xl mb-4"></i>
-                            <p class="text-red-300 text-lg font-semibold">Acesso Negado</p>
-                            <p class="text-gray-400 text-sm">Os dados estão criptografados e protegidos</p>
+                if (!emailList || !AppState.decryptedEmails) return;
+
+                // Renderizar lista principal (somente leitura)
+                emailList.innerHTML = AppState.decryptedEmails.map((email, index) => `
+                    <div class="flex items-center justify-between p-4 bg-black/30 border border-gray-600/50 rounded-lg hover:border-gray-500/70 transition-all duration-200">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium">${email}</div>
+                                <div class="text-gray-400 text-xs">E-mail #${index + 1}</div>
+                            </div>
                         </div>
-                    `;
-                    countElement.textContent = 'Dados criptografados - Acesso restrito';
-                    return;
+                        <button 
+                            onclick="UISystem.copyToClipboard('${email}')"
+                            class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 hover:from-green-500/30 hover:to-emerald-500/30 text-green-300 px-3 py-2 rounded-lg text-sm transition-all duration-200 transform hover:scale-105 border border-green-500/30 hover:border-green-400/50"
+                        >
+                            <i class="fas fa-copy mr-1"></i>
+                            Copiar
+                        </button>
+                    </div>
+                `).join('');
+
+                // Renderizar lista editável
+                if (editableEmailList) {
+                    editableEmailList.innerHTML = AppState.decryptedEmails.map((email, index) => `
+                        <div class="flex items-center justify-between p-3 bg-black/20 border border-gray-700/50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-white text-xs"></i>
+                                </div>
+                                <span class="text-white text-sm">${email}</span>
+                            </div>
+                            <button 
+                                onclick="UISystem.removeEmail(${index})"
+                                class="bg-red-500/20 hover:bg-red-500/30 text-red-300 px-3 py-1 rounded text-xs transition-colors duration-200"
+                            >
+                                <i class="fas fa-trash mr-1"></i>
+                                Remover
+                            </button>
+                        </div>
+                    `).join('');
                 }
-                
-                container.innerHTML = emailList.map(email => `
-                    <div class="email-item bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-xl p-4 border border-gray-700/30 hover:border-cyan-500/50 transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <span class="text-white font-mono text-sm">${email}</span>
-                            <button class="copy-btn bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 px-3 py-1 rounded-lg text-xs transition-colors duration-200" data-email="${email}">
-                                <i class="fas fa-copy mr-1"></i>Copiar
+
+                // Atualizar contador
+                if (emailCount) {
+                    emailCount.textContent = `Total: ${AppState.decryptedEmails.length} e-mails cadastrados`;
+                }
+            },
+
+            renderSitesList() {
+                const sitesGrid = document.getElementById('sitesGrid');
+                if (!sitesGrid || !AppState.monitoredSites) return;
+
+                sitesGrid.innerHTML = AppState.monitoredSites.map(site => `
+                    <div class="site-card ${site.status}" data-site-id="${site.id}">
+                        <div class="site-name">${site.name}</div>
+                        <div class="site-url">${site.url}</div>
+                        <div class="site-status">
+                            <span class="status-dot ${site.status}"></span>
+                            ${this.getStatusText(site.status)}
+                        </div>
+                        ${site.responseTime ? `<div class="site-response-time">Tempo: ${SiteMonitoringSystem.formatResponseTime(site.responseTime)}</div>` : ''}
+                        <div class="site-actions">
+                            <button class="site-btn visit" onclick="window.open('${site.url}', '_blank')">
+                                <i class="fas fa-external-link-alt"></i>
+                                Visitar
+                            </button>
+                            <button class="site-btn check" onclick="UISystem.checkSingleSite(${site.id})">
+                                <i class="fas fa-sync-alt"></i>
+                                Verificar
+                            </button>
+                            <button class="site-btn remove" onclick="UISystem.removeSite(${site.id})">
+                                <i class="fas fa-trash"></i>
+                                Remover
                             </button>
                         </div>
                     </div>
                 `).join('');
-
-                countElement.textContent = `Total: ${emailList.length} e-mails cadastrados`;
             },
 
-            renderEditableEmailList(emailList = []) {
-                const container = document.getElementById('editableEmailList');
-                const countElement = document.getElementById('editEmailCount');
-                
-                if (emailList.length === 0) {
-                    container.innerHTML = `
-                        <div class="text-center py-8">
-                            <i class="fas fa-inbox text-gray-400 text-4xl mb-4"></i>
-                            <p class="text-gray-300 text-lg font-semibold">Nenhum e-mail cadastrado</p>
-                            <p class="text-gray-400 text-sm">Adicione o primeiro e-mail usando o formulário acima</p>
-                        </div>
-                    `;
-                    countElement.textContent = 'Lista vazia - Adicione novos e-mails';
-                    return;
-                }
-                
-                container.innerHTML = emailList.map((email, index) => `
-                    <div class="email-edit-item bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-xl p-4 border border-gray-700/30 hover:border-green-500/50 transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <span class="text-white font-mono text-sm flex-1">${email}</span>
-                            <div class="flex space-x-2">
-                                <button class="copy-btn bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 px-3 py-1 rounded-lg text-xs transition-colors duration-200" data-email="${email}">
-                                    <i class="fas fa-copy mr-1"></i>Copiar
-                                </button>
-                                <button class="remove-btn bg-red-500/20 hover:bg-red-500/30 text-red-300 px-3 py-1 rounded-lg text-xs transition-colors duration-200" data-email="${email}" data-index="${index}">
-                                    <i class="fas fa-trash mr-1"></i>Remover
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-
-                countElement.textContent = `${emailList.length} e-mails - Alterações salvas automaticamente`;
-            },
-
-            showWelcomeMessage() {
-                const welcomeMessage = document.getElementById('welcomeMessage');
-                const errorMessage = document.getElementById('errorMessage');
-                
-                welcomeMessage.classList.remove('hidden');
-                errorMessage.classList.add('hidden');
-            },
-
-            switchToPanel() {
-                document.getElementById('loginScreen').classList.add('hidden');
-                document.getElementById('adminPanel').classList.remove('hidden');
-                document.getElementById('welcomeMessage').classList.add('hidden');
-            },
-
-            switchToLogin() {
-                document.getElementById('adminPanel').classList.add('hidden');
-                document.getElementById('loginScreen').classList.remove('hidden');
-                document.getElementById('passwordInput').value = '';
-                document.getElementById('errorMessage').classList.add('hidden');
-                
-                // Reset attempt counter
-                AppState.failedAttempts = 0;
-                Utils.updateAttemptCounter();
-            }
-        };
-
-        // Sistema de localização e informações do sistema
-        const LocationSystem = {
-            async getLocationAndWeather() {
-                // Tentar obter localização via IP primeiro (mais confiável)
-                try {
-                    await this.getLocationByIP();
-                } catch (error) {
-                    console.log('Falha na localização por IP, tentando GPS...');
-                    await this.getLocationByGPS();
+            getStatusText(status) {
+                switch (status) {
+                    case 'online': return 'Online';
+                    case 'offline': return 'Offline';
+                    case 'checking': return 'Verificando...';
+                    default: return 'Desconhecido';
                 }
             },
 
-            async getLocationByIP() {
-                try {
-                    // Usar múltiplos serviços para maior confiabilidade
-                    const services = [
-                        'https://ipapi.co/json/',
-                        'https://api.ipify.org?format=json',
-                        'https://ipinfo.io/json'
-                    ];
+            async checkSingleSite(siteId) {
+                const site = AppState.monitoredSites.find(s => s.id === siteId);
+                if (!site) return;
 
-                    for (const service of services) {
-                        try {
-                            const response = await fetch(service, { timeout: 5000 });
-                            const data = await response.json();
-                            
-                            if (service.includes('ipapi.co')) {
-                                this.updateLocationFromIPAPI(data);
-                                return;
-                            } else if (service.includes('ipinfo.io')) {
-                                this.updateLocationFromIPInfo(data);
-                                return;
-                            }
-                        } catch (serviceError) {
-                            console.log(`Serviço ${service} falhou:`, serviceError);
-                            continue;
-                        }
-                    }
+                site.status = 'checking';
+                this.renderSitesList();
+
+                await SiteMonitoringSystem.checkSiteStatus(site);
+                this.renderSitesList();
+            },
+
+            removeSite(siteId) {
+                if (confirm('Tem certeza que deseja remover este site?')) {
+                    SiteMonitoringSystem.removeSite(siteId);
+                    this.renderSitesList();
+                }
+            },
+
+            addEmail(email) {
+                if (!email || !AppState.isAuthenticated) return false;
+
+                // Validar formato do e-mail
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Por favor, digite um e-mail válido.');
+                    return false;
+                }
+
+                // Verificar se já existe
+                if (AppState.decryptedEmails.includes(email)) {
+                    alert('Este e-mail já está na lista.');
+                    return false;
+                }
+
+                // Adicionar e-mail
+                AppState.decryptedEmails.push(email);
+                StorageSystem.saveEmails(AppState.decryptedEmails);
+                
+                // Atualizar interface
+                this.renderEmailList();
+                return true;
+            },
+
+            removeEmail(index) {
+                if (!AppState.isAuthenticated || index < 0 || index >= AppState.decryptedEmails.length) return;
+
+                AppState.decryptedEmails.splice(index, 1);
+                StorageSystem.saveEmails(AppState.decryptedEmails);
+                this.renderEmailList();
+            },
+
+            copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    // Som de notificação
+                    AudioSystem.play('notification');
                     
-                    throw new Error('Todos os serviços de IP falharam');
-                } catch (error) {
-                    throw error;
-                }
-            },
-
-            async getLocationByGPS() {
-                if (!navigator.geolocation) {
-                    this.showFallbackInfo();
-                    return;
-                }
-
-                try {
-                    const position = await this.getCurrentPosition();
-                    const { latitude: lat, longitude: lon } = position.coords;
-                    await this.updateLocationFromCoords(lat, lon);
-                } catch (error) {
-                    this.showFallbackInfo();
-                }
-            },
-
-            getCurrentPosition() {
-                return new Promise((resolve, reject) => {
-                    navigator.geolocation.getCurrentPosition(
-                        resolve, 
-                        reject,
-                        { 
-                            timeout: 10000, 
-                            enableHighAccuracy: false,
-                            maximumAge: 300000 // 5 minutos
-                        }
-                    );
+                    // Mostrar feedback visual
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed top-4 right-4 bg-green-500/20 border border-green-500/50 text-green-300 px-4 py-2 rounded-lg shadow-lg z-50';
+                    notification.textContent = 'E-mail copiado!';
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => notification.remove(), 2000);
+                }).catch(err => {
+                    console.error('Erro ao copiar:', err);
+                    alert('Erro ao copiar e-mail');
                 });
             },
 
-            updateLocationFromIPAPI(data) {
-                const city = data.city || 'Cidade não identificada';
-                const region = data.region || '';
-                const country = data.country_name || data.country || 'País não identificado';
-                const timezone = data.timezone || 'UTC';
-                
-                document.getElementById('cityName').textContent = `${city}, ${region}, ${country}`;
-                document.getElementById('temperature').textContent = `Fuso horário: ${timezone}`;
-                document.getElementById('weather').textContent = `IP: ${data.ip || 'Não disponível'}`;
-            },
+            copyAllEmails() {
+                if (!AppState.decryptedEmails || AppState.decryptedEmails.length === 0) return;
 
-            updateLocationFromIPInfo(data) {
-                const location = data.city || 'Localização';
-                const region = data.region || '';
-                const country = data.country || 'BR';
-                
-                document.getElementById('cityName').textContent = `${location}, ${region}, ${country}`;
-                document.getElementById('temperature').textContent = `Provedor: ${data.org || 'Não identificado'}`;
-                document.getElementById('weather').textContent = `Coordenadas: ${data.loc || 'Não disponível'}`;
-            },
-
-            async updateLocationFromCoords(lat, lon) {
-                try {
-                    // Usar serviço de geocodificação reversa
-                    const geoServices = [
-                        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=pt`,
-                        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&accept-language=pt`
-                    ];
-
-                    for (const service of geoServices) {
-                        try {
-                            const response = await fetch(service);
-                            const data = await response.json();
-                            
-                            if (service.includes('bigdatacloud')) {
-                                const city = data.city || data.locality || 'Cidade detectada';
-                                const country = data.countryName || 'País detectado';
-                                document.getElementById('cityName').textContent = `${city}, ${country}`;
-                                document.getElementById('temperature').textContent = `Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)}`;
-                                document.getElementById('weather').textContent = 'Localização via GPS ativa';
-                                return;
-                            } else if (service.includes('openstreetmap')) {
-                                const address = data.display_name || 'Endereço detectado';
-                                document.getElementById('cityName').textContent = address.substring(0, 50) + '...';
-                                document.getElementById('temperature').textContent = `Precisão: ${data.importance || 'Alta'}`;
-                                document.getElementById('weather').textContent = 'Geocodificação OSM ativa';
-                                return;
-                            }
-                        } catch (serviceError) {
-                            continue;
-                        }
-                    }
+                const allEmails = AppState.decryptedEmails.join('\n');
+                navigator.clipboard.writeText(allEmails).then(() => {
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed top-4 right-4 bg-green-500/20 border border-green-500/50 text-green-300 px-4 py-2 rounded-lg shadow-lg z-50';
+                    notification.textContent = `${AppState.decryptedEmails.length} e-mails copiados!`;
+                    document.body.appendChild(notification);
                     
-                    // Se todos os serviços falharam, mostrar coordenadas básicas
-                    document.getElementById('cityName').textContent = 'Localização GPS detectada';
-                    document.getElementById('temperature').textContent = `Latitude: ${lat.toFixed(6)}`;
-                    document.getElementById('weather').textContent = `Longitude: ${lon.toFixed(6)}`;
-                    
-                } catch (error) {
-                    this.showFallbackInfo();
-                }
-            },
-
-            showFallbackInfo() {
-                // Mostrar informações do sistema quando localização falha
-                const now = new Date();
-                const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                const language = navigator.language || 'pt-BR';
-                const platform = navigator.platform || 'Desconhecido';
-                
-                document.getElementById('cityName').textContent = `Sistema Local (${timeZone})`;
-                document.getElementById('temperature').textContent = `Plataforma: ${platform}`;
-                document.getElementById('weather').textContent = `Idioma: ${language}`;
-            },
-
-            showError(message) {
-                document.getElementById('cityName').textContent = message;
-                document.getElementById('temperature').textContent = 'Serviço indisponível';
-                document.getElementById('weather').textContent = 'Tentando métodos alternativos...';
-                
-                // Tentar método alternativo após erro
-                setTimeout(() => {
-                    this.showFallbackInfo();
-                }, 2000);
-            }
-        };
-
-        // Controlador principal da aplicação
-        const App = {
-            init() {
-                this.setupEventListeners();
-                this.initializeUI();
-                this.startupSequence();
-                this.startSystemUpdates();
+                    setTimeout(() => notification.remove(), 3000);
+                }).catch(err => {
+                    console.error('Erro ao copiar:', err);
+                    alert('Erro ao copiar e-mails');
+                });
             },
 
             setupEventListeners() {
-                // Login form
-                document.getElementById('loginForm').addEventListener('submit', this.handleLogin.bind(this));
+                // Formulário de login
+                const loginForm = document.getElementById('loginForm');
+                const loginButton = document.getElementById('loginButton');
+                const passwordInput = document.getElementById('passwordInput');
                 
-                // Database modal
-                document.getElementById('databaseBtn').addEventListener('click', (e) => {
-                    AudioSystem.playModernClick();
-                    this.openDatabase();
-                });
-                document.getElementById('closeDatabaseBtn').addEventListener('click', this.closeDatabase.bind(this));
-                document.getElementById('databaseModal').addEventListener('click', this.handleModalClick.bind(this));
-                
-                // Edit modal
-                document.getElementById('editBtn').addEventListener('click', (e) => {
-                    AudioSystem.playModernClick();
-                    this.openEditor();
-                });
-                document.getElementById('closeEditBtn').addEventListener('click', this.closeEditor.bind(this));
-                document.getElementById('editModal').addEventListener('click', this.handleEditModalClick.bind(this));
-                
-                // Add email form
-                document.getElementById('addEmailForm').addEventListener('submit', this.handleAddEmail.bind(this));
-                
-                // Copy and remove functionality
-                document.addEventListener('click', this.handleCopyClick.bind(this));
-                document.addEventListener('click', this.handleRemoveClick.bind(this));
-                
-                // Copy all functionality
-                document.getElementById('copyAllBtn').addEventListener('click', (e) => {
-                    AudioSystem.playModernClick();
-                    this.handleCopyAll();
-                });
-                
-                // Logout
-                document.getElementById('logoutBtn').addEventListener('click', (e) => {
-                    AudioSystem.playModernClick();
-                    this.handleLogout();
-                });
-
-                // Adicionar sons de hover aos botões
-                this.addHoverSounds();
-            },
-
-            addHoverSounds() {
-                // Selecionar todos os botões e elementos clicáveis
-                const interactiveElements = document.querySelectorAll('button, .cursor-pointer, [onclick]');
-                
-                interactiveElements.forEach(element => {
-                    element.addEventListener('mouseenter', () => {
-                        AudioSystem.playModernHover();
+                if (loginForm) {
+                    loginForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const password = passwordInput.value;
+                        console.log('Formulário submetido com senha:', password);
+                        await AuthSystem.authenticate(password);
                     });
-                });
-            },
-
-            initializeUI() {
-                UISystem.renderAITools();
-                UISystem.renderEmailList(); // Renderiza vazio inicialmente (dados criptografados)
-                document.getElementById('passwordInput').focus();
-            },
-
-            startSystemUpdates() {
-                // Atualizar relógio do sistema a cada segundo
-                const timeInterval = setInterval(() => {
-                    Utils.updateSystemTime();
-                }, 1000);
-                AppState.intervals.add(timeInterval);
-                
-                // Primeira atualização imediata
-                Utils.updateSystemTime();
-            },
-
-            async startupSequence() {
-                await Utils.delay(1000);
-                LocationSystem.getLocationAndWeather();
-            },
-
-
-
-            async handleLogin(e) {
-                e.preventDefault();
-                
-                if (AppState.isLocked) return;
-
-                const password = document.getElementById('passwordInput').value;
-                
-                // Descriptografar a senha armazenada para comparação
-                const realPassword = CryptoSystem.decryptPassword(CONFIG.correctPassword);
-                
-                if (password === realPassword) {
-                    // Autenticar usuário e descriptografar dados
-                    AppState.isAuthenticated = true;
-                    AppState.decryptedEmails = CryptoSystem.decryptEmailList(password);
-                    
-                    UISystem.showWelcomeMessage();
-                    
-                    await Utils.delay(1000);
-                    
-                    // Ativar sequência robótica antes de entrar no painel
-                    await RobotActivationSystem.activateRobot();
-                    
-                    UISystem.switchToPanel();
-                    
-                    // Tocar sequência de boas-vindas após ativação robótica
-                    SoundEffectsSystem.playWelcomeSequence();
-                    
-                    AppState.failedAttempts = 0;
-                    Utils.updateAttemptCounter();
-                } else {
-                    AppState.failedAttempts++;
-                    Utils.updateAttemptCounter();
-                    
-                    if (AppState.failedAttempts >= CONFIG.maxFailedAttempts) {
-                        AppState.isLocked = true;
-                        SecuritySystem.lockSystem();
-                    } else {
-                        document.getElementById('errorMessage').classList.remove('hidden');
-                        document.getElementById('passwordInput').value = '';
-                        document.getElementById('passwordInput').focus();
-                    }
-                }
-            },
-
-            openDatabase() {
-                document.getElementById('databaseModal').classList.remove('hidden');
-                // Tocar efeitos sonoros de acesso ao banco de dados
-                SoundEffectsSystem.playDatabaseAccess();
-                // Só mostra e-mails se usuário estiver autenticado
-                if (AppState.isAuthenticated) {
-                    UISystem.renderEmailList(AppState.decryptedEmails);
-                } else {
-                    UISystem.renderEmailList(); // Mostra mensagem de acesso negado
-                }
-            },
-
-            closeDatabase() {
-                document.getElementById('databaseModal').classList.add('hidden');
-            },
-
-            handleModalClick(e) {
-                if (e.target === e.currentTarget) {
-                    this.closeDatabase();
-                }
-            },
-
-            async handleCopyClick(e) {
-                const button = e.target.closest('.copy-btn');
-                if (!button) return;
-
-                const email = button.getAttribute('data-email');
-                
-                // Som de cópia de dados
-                SoundEffectsSystem.playEmailCopied();
-                
-                try {
-                    await navigator.clipboard.writeText(email);
-                    this.showCopyFeedback(button);
-                } catch (err) {
-                    this.fallbackCopy(email);
-                    this.showCopyFeedback(button);
-                }
-            },
-
-            showCopyFeedback(button) {
-                const originalText = button.innerHTML;
-                button.innerHTML = '<i class="fas fa-check mr-1"></i>Copiado!';
-                button.classList.remove('bg-cyan-500/20', 'hover:bg-cyan-500/30', 'text-cyan-300');
-                button.classList.add('bg-green-500/20', 'text-green-300');
-                
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.classList.remove('bg-green-500/20', 'text-green-300');
-                    button.classList.add('bg-cyan-500/20', 'hover:bg-cyan-500/30', 'text-cyan-300');
-                }, 2000);
-            },
-
-            fallbackCopy(text) {
-                const textArea = document.createElement('textarea');
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-            },
-
-            async handleCopyAll() {
-                if (!AppState.isAuthenticated || AppState.decryptedEmails.length === 0) {
-                    return;
-                }
-
-                // Som de exportação em massa
-                SoundEffectsSystem.playAllEmailsCopied();
-
-                // Juntar todos os e-mails em uma string, separados por quebra de linha
-                const allEmails = AppState.decryptedEmails.join('\n');
-                
-                try {
-                    await navigator.clipboard.writeText(allEmails);
-                    this.showCopyAllFeedback();
-                } catch (err) {
-                    this.fallbackCopy(allEmails);
-                    this.showCopyAllFeedback();
-                }
-            },
-
-            showCopyAllFeedback() {
-                const button = document.getElementById('copyAllBtn');
-                const originalText = button.innerHTML;
-                
-                button.innerHTML = '<i class="fas fa-check mr-2"></i>Todos Copiados!';
-                button.classList.remove('from-purple-500/20', 'to-pink-500/20', 'hover:from-purple-500/30', 'hover:to-pink-500/30', 'text-purple-300', 'border-purple-500/30');
-                button.classList.add('from-green-500/20', 'to-emerald-500/20', 'text-green-300', 'border-green-500/30');
-                
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.classList.remove('from-green-500/20', 'to-emerald-500/20', 'text-green-300', 'border-green-500/30');
-                    button.classList.add('from-purple-500/20', 'to-pink-500/20', 'hover:from-purple-500/30', 'hover:to-pink-500/30', 'text-purple-300', 'border-purple-500/30');
-                }, 3000);
-            },
-
-            openEditor() {
-                document.getElementById('editModal').classList.remove('hidden');
-                // Som de ativação do modo de edição
-                SoundEffectsSystem.playEditMode();
-                // Só mostra e-mails se usuário estiver autenticado
-                if (AppState.isAuthenticated) {
-                    UISystem.renderEditableEmailList(AppState.decryptedEmails);
-                } else {
-                    UISystem.renderEditableEmailList(); // Mostra mensagem de lista vazia
-                }
-                document.getElementById('newEmailInput').focus();
-            },
-
-            closeEditor() {
-                document.getElementById('editModal').classList.add('hidden');
-                document.getElementById('newEmailInput').value = '';
-            },
-
-            handleEditModalClick(e) {
-                if (e.target === e.currentTarget) {
-                    this.closeEditor();
-                }
-            },
-
-            async handleAddEmail(e) {
-                e.preventDefault();
-                
-                if (!AppState.isAuthenticated) return;
-
-                const emailInput = document.getElementById('newEmailInput');
-                const newEmail = emailInput.value.trim();
-                
-                if (!newEmail) return;
-
-                // Verificar se e-mail já existe
-                if (AppState.decryptedEmails.includes(newEmail)) {
-                    this.showAddEmailFeedback(emailInput, 'E-mail já existe!', 'error');
-                    return;
-                }
-
-                // Adicionar e-mail à lista
-                AppState.decryptedEmails.push(newEmail);
-                
-                // Salvar no armazenamento local
-                const saved = StorageSystem.saveEmails(AppState.decryptedEmails);
-                
-                if (saved) {
-                    // Som de adição de registro
-                    SoundEffectsSystem.playEmailAdded();
-                    
-                    // Atualizar interface
-                    UISystem.renderEditableEmailList(AppState.decryptedEmails);
-                    
-                    // Feedback visual
-                    this.showAddEmailFeedback(emailInput, 'E-mail adicionado!', 'success');
-                    
-                    // Limpar campo
-                    emailInput.value = '';
-                    emailInput.focus();
-                } else {
-                    this.showAddEmailFeedback(emailInput, 'Erro ao salvar!', 'error');
-                }
-            },
-
-            async handleRemoveClick(e) {
-                const button = e.target.closest('.remove-btn');
-                if (!button || !AppState.isAuthenticated) return;
-
-                const email = button.getAttribute('data-email');
-                const index = parseInt(button.getAttribute('data-index'));
-                
-                // Remover e-mail da lista
-                AppState.decryptedEmails.splice(index, 1);
-                
-                // Salvar no armazenamento local
-                const saved = StorageSystem.saveEmails(AppState.decryptedEmails);
-                
-                if (saved) {
-                    // Som de remoção de registro
-                    SoundEffectsSystem.playEmailRemoved();
-                    
-                    // Atualizar interface
-                    UISystem.renderEditableEmailList(AppState.decryptedEmails);
-                    
-                    // Feedback visual
-                    this.showRemoveFeedback(button);
-                }
-            },
-
-            showAddEmailFeedback(input, message, type) {
-                const originalPlaceholder = input.placeholder;
-                const originalBorder = input.style.borderColor;
-                
-                if (type === 'success') {
-                    input.placeholder = message;
-                    input.style.borderColor = '#10b981';
-                    input.style.boxShadow = '0 0 10px rgba(16, 185, 129, 0.3)';
-                } else {
-                    input.placeholder = message;
-                    input.style.borderColor = '#ef4444';
-                    input.style.boxShadow = '0 0 10px rgba(239, 68, 68, 0.3)';
                 }
                 
-                setTimeout(() => {
-                    input.placeholder = originalPlaceholder;
-                    input.style.borderColor = originalBorder;
-                    input.style.boxShadow = '';
-                }, 2000);
-            },
+                if (loginButton) {
+                    // Adicionar som de hover
+                    loginButton.addEventListener('mouseenter', () => {
+                        AudioSystem.play('buttonHover');
+                    });
+                    
+                    loginButton.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        // Som de clique
+                        AudioSystem.play('buttonClick');
+                        const password = passwordInput.value;
+                        console.log('Botão clicado com senha:', password);
+                        await AuthSystem.authenticate(password);
+                    });
+                }
 
-            showRemoveFeedback(button) {
-                const originalText = button.innerHTML;
-                button.innerHTML = '<i class="fas fa-check mr-1"></i>Removido!';
-                button.classList.remove('bg-red-500/20', 'hover:bg-red-500/30', 'text-red-300');
-                button.classList.add('bg-gray-500/20', 'text-gray-400');
-                button.disabled = true;
-                
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.classList.remove('bg-gray-500/20', 'text-gray-400');
-                    button.classList.add('bg-red-500/20', 'hover:bg-red-500/30', 'text-red-300');
-                    button.disabled = false;
-                }, 1500);
-            },
+                // Sistema de engrenagens interativas
+                if (passwordInput) {
+                    let typingTimeout;
+                    
+                    passwordInput.addEventListener('input', () => {
+                        const value = passwordInput.value;
+                        
+                        // Som de digitação futurista
+                        AudioSystem.play('typing');
+                        
+                        if (value.length > 0) {
+                            if (!AppState.isTyping) {
+                                AppState.isTyping = true;
+                                GearSystem.setTypingState();
+                                // Som de engrenagens quando começa a digitar
+                                AudioSystem.play('gearRotation');
+                            }
+                            
+                            // Resetar timeout
+                            clearTimeout(typingTimeout);
+                            typingTimeout = setTimeout(() => {
+                                if (value.length === 0) {
+                                    AppState.isTyping = false;
+                                    GearSystem.setIdleState();
+                                }
+                            }, 1000);
+                        } else {
+                            AppState.isTyping = false;
+                            GearSystem.setIdleState();
+                            clearTimeout(typingTimeout);
+                        }
+                    });
+                    
+                    passwordInput.addEventListener('blur', () => {
+                        setTimeout(() => {
+                            if (passwordInput.value.length === 0) {
+                                AppState.isTyping = false;
+                                GearSystem.setIdleState();
+                            }
+                        }, 500);
+                    });
+                }
 
-            handleLogout() {
-                // Som de sequência de logout
-                SoundEffectsSystem.playLogoutSequence();
+                // Botões do painel
+                const logoutBtn = document.getElementById('logoutBtn');
+                if (logoutBtn) {
+                    logoutBtn.addEventListener('mouseenter', () => AudioSystem.play('buttonHover'));
+                    logoutBtn.addEventListener('click', () => {
+                        AudioSystem.play('buttonClick');
+                        location.reload();
+                    });
+                }
+
+                const databaseBtn = document.getElementById('databaseBtn');
+                const databaseModal = document.getElementById('databaseModal');
+                const closeDatabaseBtn = document.getElementById('closeDatabaseBtn');
                 
-                Utils.clearAllIntervals();
+                if (databaseBtn && databaseModal) {
+                    databaseBtn.addEventListener('mouseenter', () => AudioSystem.play('buttonHover'));
+                    databaseBtn.addEventListener('click', () => {
+                        AudioSystem.play('buttonClick');
+                        databaseModal.classList.remove('hidden');
+                    });
+                }
                 
-                // Limpar dados sensíveis da memória
-                AppState.isAuthenticated = false;
-                AppState.decryptedEmails = [];
+                if (closeDatabaseBtn && databaseModal) {
+                    closeDatabaseBtn.addEventListener('mouseenter', () => AudioSystem.play('buttonHover'));
+                    closeDatabaseBtn.addEventListener('click', () => {
+                        AudioSystem.play('buttonClick');
+                        databaseModal.classList.add('hidden');
+                    });
+                }
+
+                const editBtn = document.getElementById('editBtn');
+                const editModal = document.getElementById('editModal');
+                const closeEditBtn = document.getElementById('closeEditBtn');
                 
-                UISystem.switchToLogin();
-                this.startSystemUpdates(); // Reiniciar atualizações do sistema
+                if (editBtn && editModal) {
+                    editBtn.addEventListener('mouseenter', () => AudioSystem.play('buttonHover'));
+                    editBtn.addEventListener('click', () => {
+                        AudioSystem.play('buttonClick');
+                        editModal.classList.remove('hidden');
+                    });
+                }
+                
+                if (closeEditBtn && editModal) {
+                    closeEditBtn.addEventListener('mouseenter', () => AudioSystem.play('buttonHover'));
+                    closeEditBtn.addEventListener('click', () => {
+                        AudioSystem.play('buttonClick');
+                        editModal.classList.add('hidden');
+                    });
+                }
+
+                // Formulário de adição de e-mail
+                const addEmailForm = document.getElementById('addEmailForm');
+                if (addEmailForm) {
+                    addEmailForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const emailInput = document.getElementById('newEmailInput');
+                        if (this.addEmail(emailInput.value)) {
+                            emailInput.value = '';
+                        }
+                    });
+                }
+
+                // Formulário de adição de site
+                const addSiteForm = document.getElementById('addSiteForm');
+                if (addSiteForm) {
+                    addSiteForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const nameInput = document.getElementById('siteNameInput');
+                        const urlInput = document.getElementById('siteUrlInput');
+                        
+                        const result = SiteMonitoringSystem.addSite(nameInput.value, urlInput.value);
+                        if (result.success) {
+                            nameInput.value = '';
+                            urlInput.value = '';
+                            this.renderSitesList();
+                        } else {
+                            alert(result.error);
+                        }
+                    });
+                }
+
+                // Botão de verificar todos os sites
+                const checkAllSitesBtn = document.getElementById('checkAllSitesBtn');
+                if (checkAllSitesBtn) {
+                    checkAllSitesBtn.addEventListener('click', () => {
+                        SiteMonitoringSystem.checkAllSites();
+                    });
+                }
+
+                // Botão de copiar todos os e-mails
+                const copyAllBtn = document.getElementById('copyAllBtn');
+                if (copyAllBtn) {
+                    copyAllBtn.addEventListener('click', () => {
+                        this.copyAllEmails();
+                    });
+                }
+
+                // Controle de áudio
+                const audioToggleBtn = document.getElementById('audioToggleBtn');
+                const audioIcon = document.getElementById('audioIcon');
+                if (audioToggleBtn && audioIcon) {
+                    audioToggleBtn.addEventListener('click', () => {
+                        const isEnabled = AudioSystem.toggle();
+                        audioIcon.className = isEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
+                        audioToggleBtn.className = isEnabled ? 
+                            'bg-purple-800 hover:bg-purple-700 text-white px-4 py-3 rounded-xl transition-all duration-200 text-sm font-medium border border-purple-600 hover:border-purple-500 shadow-lg' :
+                            'bg-red-800 hover:bg-red-700 text-white px-4 py-3 rounded-xl transition-all duration-200 text-sm font-medium border border-red-600 hover:border-red-500 shadow-lg';
+                        
+                        // Som de confirmação se áudio estiver habilitado
+                        if (isEnabled) {
+                            AudioSystem.play('buttonClick');
+                        }
+                    });
+                }
             }
         };
 
-        // Inicializar aplicação quando DOM estiver pronto
-        document.addEventListener('DOMContentLoaded', () => {
-            App.init();
+        // Inicialização da aplicação
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('Aplicação iniciada');
+            
+            // Inicializar sistema de áudio
+            await AudioSystem.init();
+            
+            // Inicializar sistemas
+            GearSystem.init();
+            
+            // Configurar relógio do sistema
+            Utils.updateSystemTime();
+            const timeInterval = setInterval(Utils.updateSystemTime, 1000);
+            AppState.intervals.add(timeInterval);
+            
+            // Configurar listeners de eventos
+            UISystem.setupEventListeners();
+            
+            // Estado inicial das engrenagens
+            GearSystem.setIdleState();
+            
+            // Som ambiente inicial (baixo volume)
+            setTimeout(() => {
+                AudioSystem.setVolume(0.2);
+                AudioSystem.play('ambientTech');
+            }, 2000);
+            
+            console.log('Sistema inicializado com sucesso');
+        });
+
+        // Limpeza ao sair da página
+        window.addEventListener('beforeunload', () => {
+            Utils.clearAllIntervals();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97cef926f089f632',t:'MTc1NzUwNzgxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97d211dfa3aef632',t:'MTc1NzU0MDI4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
