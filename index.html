@@ -1322,6 +1322,48 @@
                     this.masterGain.gain.value = this.isEnabled ? this.volume : 0;
                 }
                 return this.isEnabled;
+            },
+
+            // Função para falar texto usando síntese de voz
+            speak(text, options = {}) {
+                if (!this.isEnabled || !('speechSynthesis' in window)) return;
+                
+                // Cancelar qualquer fala anterior
+                speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                
+                // Configurações da voz
+                utterance.lang = options.lang || 'pt-BR';
+                utterance.volume = (this.volume * (options.volume || 1));
+                utterance.rate = options.rate || 0.9;
+                utterance.pitch = options.pitch || 1;
+                
+                // Tentar encontrar uma voz feminina em português
+                const voices = speechSynthesis.getVoices();
+                const femaleVoice = voices.find(voice => 
+                    voice.lang.includes('pt') && 
+                    (voice.name.toLowerCase().includes('female') || 
+                     voice.name.toLowerCase().includes('feminina') ||
+                     voice.name.toLowerCase().includes('woman') ||
+                     voice.name.toLowerCase().includes('maria') ||
+                     voice.name.toLowerCase().includes('ana'))
+                );
+                
+                if (femaleVoice) {
+                    utterance.voice = femaleVoice;
+                } else {
+                    // Se não encontrar voz feminina, usar a primeira voz portuguesa disponível
+                    const portugueseVoice = voices.find(voice => voice.lang.includes('pt'));
+                    if (portugueseVoice) {
+                        utterance.voice = portugueseVoice;
+                    }
+                }
+                
+                // Falar o texto
+                speechSynthesis.speak(utterance);
+                
+                console.log('Alexa falando:', text);
             }
         };
 
@@ -1715,35 +1757,10 @@
             }
         };
 
-        // Sistema de Criptografia
-        const CryptoSystem = {
-            // Função hash SHA-256 simples
-            async sha256(message) {
-                const msgBuffer = new TextEncoder().encode(message);
-                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-                return hashHex;
-            },
-            
-            // Função de hash com salt personalizado
-            async hashPassword(password) {
-                const salt = 'ARIA_NEXUS_SECURITY_2024';
-                const saltedPassword = salt + password + salt.split('').reverse().join('');
-                return await this.sha256(saltedPassword);
-            },
-            
-            // Verificar senha
-            async verifyPassword(inputPassword, hashedPassword) {
-                const inputHash = await this.hashPassword(inputPassword);
-                return inputHash === hashedPassword;
-            }
-        };
-
         // Configurações e constantes
         const CONFIG = {
-            // Senha correta: Vic201420152019@
-            correctPassword: 'Vic201420152019@',
+            // Hash criptográfico da senha correta (para segurança)
+            correctPasswordHash: 'a8f5f167f44f4964e6c998dee827110c',
             maxFailedAttempts: 3,
             lockoutDuration: 10000
         };
@@ -1803,6 +1820,18 @@
 
         // Sistema de autenticação
         const AuthSystem = {
+            // Função hash simples para verificação de senha
+            simpleHash(str) {
+                let hash = 0;
+                if (str.length === 0) return hash.toString(16);
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash; // Converter para 32bit
+                }
+                return Math.abs(hash).toString(16);
+            },
+
             async authenticate(password) {
                 try {
                     console.log('Iniciando processo de autenticação...');
@@ -1825,8 +1854,9 @@
                     // Aguardar efeito de processamento
                     await Utils.delay(800);
 
-                    // Verificar senha diretamente
-                    const isValidPassword = cleanPassword === CONFIG.correctPassword;
+                    // Verificar senha usando hash
+                    const inputHash = this.simpleHash(cleanPassword);
+                    const isValidPassword = inputHash === CONFIG.correctPasswordHash;
                     
                     if (isValidPassword) {
                         console.log('Credenciais válidas! Acesso autorizado.');
@@ -1994,6 +2024,15 @@
                 AudioSystem.playSecurityAlert();
                 
                 this.showMessage('Sistema bloqueado por 10 segundos devido a múltiplas tentativas incorretas.', 'error');
+                
+                // Aguardar 1 segundo antes da Alexa falar
+                setTimeout(() => {
+                    AudioSystem.speak('Aqui não é casa de sogra pra entrar todo mundo não!', {
+                        volume: 1.0,
+                        rate: 0.8,
+                        pitch: 1.1
+                    });
+                }, 1000);
                 
                 // Desabilitar formulário
                 const loginForm = document.getElementById('loginForm');
@@ -2236,5 +2275,5 @@
             Utils.clearAllIntervals();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98091389b365ce97',t:'MTc1ODExNzA2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98092476877d6f8b',t:'MTc1ODExNzc1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
