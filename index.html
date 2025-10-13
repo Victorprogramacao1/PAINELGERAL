@@ -1792,11 +1792,145 @@
         async function initializeDashboard() {
             console.log('🚀 Dashboard inicializado com senha do banco de dados');
             
+            // Register navigation buttons in database
+            await registerNavigationButtons();
+            
             // Update database status
             updateDatabaseStatus();
             
             // Start real-time synchronization
             startRealtimeSync();
+        }
+
+        // Register all navigation buttons in database
+        async function registerNavigationButtons() {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) {
+                console.log('⚠️ Banco não disponível - botões não registrados');
+                return;
+            }
+
+            try {
+                const navigationButtons = {
+                    home: {
+                        id: 'home',
+                        name: 'Home',
+                        description: 'Dashboard principal com ferramentas IA',
+                        icon: 'home',
+                        section: 'homeSection',
+                        order: 1,
+                        active: true,
+                        features: [
+                            'Runway - Geração de Vídeos IA',
+                            'ChatGPT - Assistente IA Conversacional', 
+                            'Flow - Automação e Workflows',
+                            'Google AI - Studio e Ferramentas IA',
+                            'Canva - Design e Criação Visual'
+                        ],
+                        registeredAt: new Date().toISOString()
+                    },
+                    analytics: {
+                        id: 'analytics',
+                        name: 'Analytics',
+                        description: 'Gerenciamento de links personalizados',
+                        icon: 'activity',
+                        section: 'analyticsSection',
+                        order: 2,
+                        active: true,
+                        features: [
+                            'Adicionar links personalizados',
+                            'Organizar URLs favoritas',
+                            'Descrições detalhadas',
+                            'Acesso rápido a recursos'
+                        ],
+                        registeredAt: new Date().toISOString()
+                    },
+                    wallet: {
+                        id: 'wallet',
+                        name: 'Wallet',
+                        description: 'Crypto Wallet Brasil - Monitoramento em BRL',
+                        icon: 'wallet',
+                        section: 'walletSection',
+                        order: 3,
+                        active: true,
+                        features: [
+                            'Preços em tempo real (BRL)',
+                            'Top 100 criptomoedas',
+                            'Sistema de favoritos',
+                            'Filtros inteligentes (Alta/Baixa)',
+                            'Market cap e volume 24h',
+                            'Integração CoinGecko API'
+                        ],
+                        registeredAt: new Date().toISOString()
+                    },
+                    projects: {
+                        id: 'projects',
+                        name: 'Projects',
+                        description: 'Gerenciamento de projetos e colaborações',
+                        icon: 'folder',
+                        section: 'projectsSection',
+                        order: 4,
+                        active: true,
+                        features: [
+                            'Projetos ativos',
+                            'Taxa de conclusão',
+                            'Colaboradores',
+                            'Relatórios de progresso'
+                        ],
+                        registeredAt: new Date().toISOString()
+                    },
+                    settings: {
+                        id: 'settings',
+                        name: 'Settings',
+                        description: 'Configurações e preferências do sistema',
+                        icon: 'settings',
+                        section: 'settingsSection',
+                        order: 5,
+                        active: true,
+                        features: [
+                            'Perfil do usuário',
+                            'Configurações de segurança',
+                            'Notificações personalizadas',
+                            'Preferências do sistema'
+                        ],
+                        registeredAt: new Date().toISOString()
+                    }
+                };
+
+                // Register buttons in database
+                const buttonsRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/navigation/buttons');
+                await window.realtimeUtils.set(buttonsRef, navigationButtons);
+
+                // Register navigation metadata
+                const navMetadata = {
+                    totalButtons: Object.keys(navigationButtons).length,
+                    lastUpdated: window.realtimeUtils.serverTimestamp(),
+                    version: '1.0.0',
+                    layout: 'sidebar',
+                    theme: 'glassmorphism',
+                    registeredBy: 'system_initialization'
+                };
+
+                const metadataRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/navigation/metadata');
+                await window.realtimeUtils.set(metadataRef, navMetadata);
+
+                console.log('✅ Botões de navegação registrados no banco de dados');
+                console.log('📍 Localização: dashboard/navigation/buttons');
+                console.log('📊 Total de botões:', Object.keys(navigationButtons).length);
+
+                // Show success status
+                showSyncStatus('🔘 Botões registrados no banco', 'success');
+
+                // Log registration action
+                logUserAction('navigation_buttons_registered', {
+                    count: Object.keys(navigationButtons).length,
+                    buttons: Object.keys(navigationButtons),
+                    timestamp: new Date().toISOString()
+                });
+
+            } catch (error) {
+                console.error('❌ Erro ao registrar botões no banco:', error);
+                showSyncStatus('❌ Erro ao registrar botões', 'error');
+            }
         }
 
         // Real-time synchronization with database
@@ -2392,21 +2526,48 @@
             }
 
             try {
-                const linksRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/links');
+                // Load from new Analytics path
+                const linksRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/analytics/links');
                 const snapshot = await window.realtimeUtils.get(linksRef);
                 
                 if (snapshot.exists()) {
-                    userLinks = Object.values(snapshot.val());
-                    console.log('🔗 Links carregados do banco de dados');
+                    userLinks = Object.values(snapshot.val()).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                    console.log('🔗 Links carregados do Analytics no banco de dados');
+                    console.log('📍 Localização: dashboard/analytics/links');
                 } else {
                     userLinks = [];
-                    console.log('📝 Nenhum link encontrado no banco');
+                    console.log('📝 Nenhum link encontrado no Analytics');
+                    
+                    // Initialize analytics metadata
+                    await initializeAnalyticsMetadata();
                 }
                 
                 renderLinks();
+                
+                // Update analytics stats
+                await updateAnalyticsStats();
+                
             } catch (error) {
-                console.error('❌ Erro ao carregar links:', error);
+                console.error('❌ Erro ao carregar links do Analytics:', error);
                 loadLinksFromLocalStorage();
+            }
+        }
+
+        // Initialize analytics metadata
+        async function initializeAnalyticsMetadata() {
+            try {
+                const metadataRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/analytics/metadata');
+                await window.realtimeUtils.set(metadataRef, {
+                    totalLinks: 0,
+                    lastActivity: window.realtimeUtils.serverTimestamp(),
+                    createdAt: window.realtimeUtils.serverTimestamp(),
+                    version: '1.0.0',
+                    description: 'Gerenciamento de links personalizados com sincronização em tempo real'
+                });
+                
+                console.log('📊 Metadata do Analytics inicializada');
+            } catch (error) {
+                console.error('❌ Erro ao inicializar metadata:', error);
             }
         }
 
@@ -2418,19 +2579,81 @@
             }
 
             try {
-                const linksRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/links');
+                // Save to Analytics path
+                const linksRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/analytics/links');
                 const linksObject = {};
                 
-                userLinks.forEach((link, index) => {
-                    linksObject[`link_${index}`] = link;
+                userLinks.forEach((link) => {
+                    linksObject[`link_${link.id}`] = {
+                        ...link,
+                        lastModified: window.realtimeUtils.serverTimestamp()
+                    };
                 });
                 
                 await window.realtimeUtils.set(linksRef, linksObject);
-                console.log('💾 Links salvos no banco de dados');
-                showSyncStatus('🔗 Links sincronizados', 'success');
+                
+                // Update analytics stats
+                await updateAnalyticsStats();
+                
+                console.log('💾 Links salvos no Analytics do banco de dados');
+                console.log('📍 Localização: dashboard/analytics/links');
+                showSyncStatus('🔗 Analytics sincronizado', 'success');
+                
             } catch (error) {
-                console.error('❌ Erro ao salvar links:', error);
+                console.error('❌ Erro ao salvar links no Analytics:', error);
                 saveLinksToLocalStorage();
+            }
+        }
+
+        // Update analytics statistics
+        async function updateAnalyticsStats() {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) return;
+
+            try {
+                // Calculate stats
+                const totalLinks = userLinks.length;
+                const recentLinks = userLinks.filter(link => {
+                    const linkDate = new Date(link.createdAt);
+                    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+                    return linkDate > weekAgo;
+                }).length;
+
+                // Find most accessed link (based on access count if available)
+                const mostAccessedLink = userLinks.reduce((prev, current) => {
+                    return (current.accessCount || 0) > (prev.accessCount || 0) ? current : prev;
+                }, userLinks[0]);
+
+                // Update metadata
+                const metadataRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/analytics/metadata');
+                await window.realtimeUtils.set(metadataRef, {
+                    totalLinks: totalLinks,
+                    recentLinks: recentLinks,
+                    lastActivity: window.realtimeUtils.serverTimestamp(),
+                    mostAccessedLink: mostAccessedLink ? {
+                        id: mostAccessedLink.id,
+                        title: mostAccessedLink.title,
+                        url: mostAccessedLink.url,
+                        accessCount: mostAccessedLink.accessCount || 0
+                    } : null,
+                    version: '1.0.0',
+                    description: 'Estatísticas do gerenciamento de links personalizados'
+                });
+
+                // Update activity log
+                const activityRef = window.realtimeUtils.ref(window.realtimeDb, `dashboard/analytics/activity/${Date.now()}`);
+                await window.realtimeUtils.set(activityRef, {
+                    action: 'stats_updated',
+                    totalLinks: totalLinks,
+                    recentLinks: recentLinks,
+                    timestamp: window.realtimeUtils.serverTimestamp()
+                });
+
+                console.log('📊 Estatísticas do Analytics atualizadas');
+                console.log(`🔗 Total de links: ${totalLinks}`);
+                console.log(`📅 Links recentes (7 dias): ${recentLinks}`);
+
+            } catch (error) {
+                console.error('❌ Erro ao atualizar estatísticas do Analytics:', error);
             }
         }
 
@@ -2473,7 +2696,12 @@
                 title: title,
                 url: url,
                 description: description || 'Sem descrição',
-                createdAt: new Date().toISOString()
+                createdAt: new Date().toISOString(),
+                accessCount: 0,
+                category: 'personalizado',
+                tags: extractTagsFromDescription(description),
+                addedBy: 'user',
+                status: 'active'
             };
             
             userLinks.unshift(newLink);
@@ -2485,15 +2713,46 @@
             await saveLinksToDatabase();
             renderLinks();
             
-            // Log action
-            logUserAction('link_added', {
+            // Log action in analytics
+            logUserAction('analytics_link_added', {
                 title: title,
                 url: url,
-                timestamp: new Date().toISOString()
+                description: description,
+                linkId: newLink.id,
+                timestamp: new Date().toISOString(),
+                section: 'analytics'
             });
             
-            showSyncStatus('✅ Link adicionado com sucesso', 'success');
-            console.log('🔗 Novo link adicionado:', title);
+            // Log in analytics activity
+            if (window.isRealtimeEnabled && window.realtimeDb) {
+                const activityRef = window.realtimeUtils.ref(window.realtimeDb, `dashboard/analytics/activity/${Date.now()}`);
+                await window.realtimeUtils.set(activityRef, {
+                    action: 'link_added',
+                    linkTitle: title,
+                    linkUrl: url,
+                    linkId: newLink.id,
+                    timestamp: window.realtimeUtils.serverTimestamp()
+                });
+            }
+            
+            showSyncStatus('✅ Link adicionado ao Analytics', 'success');
+            console.log('🔗 Novo link adicionado ao Analytics:', title);
+            console.log('📍 Salvo em: dashboard/analytics/links');
+        }
+
+        // Extract tags from description
+        function extractTagsFromDescription(description) {
+            if (!description) return [];
+            
+            // Simple tag extraction - look for words that might be tags
+            const words = description.toLowerCase().split(/\s+/);
+            const commonTags = ['api', 'tool', 'docs', 'tutorial', 'guide', 'resource', 'app', 'website', 'service'];
+            
+            return words.filter(word => 
+                commonTags.includes(word) || 
+                word.startsWith('#') ||
+                word.length > 4
+            ).slice(0, 5); // Limit to 5 tags
         }
 
         // Delete link
@@ -2507,28 +2766,80 @@
             await saveLinksToDatabase();
             renderLinks();
             
-            // Log action
-            logUserAction('link_deleted', {
+            // Log action in analytics
+            logUserAction('analytics_link_deleted', {
                 title: deletedLink.title,
                 url: deletedLink.url,
-                timestamp: new Date().toISOString()
+                linkId: deletedLink.id,
+                accessCount: deletedLink.accessCount || 0,
+                timestamp: new Date().toISOString(),
+                section: 'analytics'
             });
             
-            showSyncStatus('🗑️ Link removido', 'warning');
-            console.log('🗑️ Link removido:', deletedLink.title);
+            // Log in analytics activity
+            if (window.isRealtimeEnabled && window.realtimeDb) {
+                const activityRef = window.realtimeUtils.ref(window.realtimeDb, `dashboard/analytics/activity/${Date.now()}`);
+                await window.realtimeUtils.set(activityRef, {
+                    action: 'link_deleted',
+                    linkTitle: deletedLink.title,
+                    linkUrl: deletedLink.url,
+                    linkId: deletedLink.id,
+                    accessCount: deletedLink.accessCount || 0,
+                    timestamp: window.realtimeUtils.serverTimestamp()
+                });
+            }
+            
+            showSyncStatus('🗑️ Link removido do Analytics', 'warning');
+            console.log('🗑️ Link removido do Analytics:', deletedLink.title);
+            console.log('📍 Removido de: dashboard/analytics/links');
         }
 
         // Open link
-        function openLink(url, title) {
+        async function openLink(url, title) {
+            // Update access count
+            await updateLinkAccessCount(url, title);
+            
             // Log link access
-            logUserAction('link_accessed', {
+            logUserAction('analytics_link_accessed', {
                 title: title,
                 url: url,
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toISOString(),
+                section: 'analytics'
             });
             
-            console.log('🔗 Abrindo link:', title);
+            console.log('🔗 Abrindo link do Analytics:', title);
             window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        // Update link access count
+        async function updateLinkAccessCount(url, title) {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) return;
+
+            try {
+                // Find the link and update access count
+                const linkIndex = userLinks.findIndex(link => link.url === url);
+                if (linkIndex !== -1) {
+                    userLinks[linkIndex].accessCount = (userLinks[linkIndex].accessCount || 0) + 1;
+                    userLinks[linkIndex].lastAccessed = new Date().toISOString();
+                    
+                    // Save updated links
+                    await saveLinksToDatabase();
+                    
+                    // Log access in analytics activity
+                    const accessRef = window.realtimeUtils.ref(window.realtimeDb, `dashboard/analytics/access_log/${Date.now()}`);
+                    await window.realtimeUtils.set(accessRef, {
+                        linkTitle: title,
+                        linkUrl: url,
+                        accessCount: userLinks[linkIndex].accessCount,
+                        timestamp: window.realtimeUtils.serverTimestamp(),
+                        userAgent: navigator.userAgent.substring(0, 100)
+                    });
+                    
+                    console.log(`📊 Acesso registrado: ${title} (${userLinks[linkIndex].accessCount}x)`);
+                }
+            } catch (error) {
+                console.error('❌ Erro ao atualizar contador de acesso:', error);
+            }
         }
 
         // Render links
@@ -2583,6 +2894,64 @@
         async function initializeDashboard() {
             await originalInitializeDashboard();
             await loadLinksFromDatabase();
+            
+            // Start real-time sync for links
+            startLinksRealtimeSync();
+        }
+
+        // Real-time synchronization for links
+        function startLinksRealtimeSync() {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) {
+                console.log('⚠️ Sincronização de links não disponível - banco desconectado');
+                return;
+            }
+
+            console.log('🔄 Iniciando sincronização em tempo real para links...');
+
+            // Listen for real-time changes in links
+            const linksRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/analytics/links');
+            window.realtimeUtils.onValue(linksRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const linksData = snapshot.val();
+                    userLinks = Object.values(linksData).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                    renderLinks();
+                    showSyncStatus('🔗 Links sincronizados em tempo real', 'success');
+                    console.log('🔄 Links atualizados em tempo real:', userLinks.length);
+                } else {
+                    userLinks = [];
+                    renderLinks();
+                }
+            });
+
+            // Sync analytics metadata
+            const analyticsMetaRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/analytics/metadata');
+            window.realtimeUtils.onValue(analyticsMetaRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const metadata = snapshot.val();
+                    updateAnalyticsMetadata(metadata);
+                }
+            });
+
+            console.log('✅ Sincronização em tempo real ativa para Analytics');
+        }
+
+        // Update analytics metadata
+        function updateAnalyticsMetadata(metadata) {
+            try {
+                if (metadata.totalLinks !== undefined) {
+                    console.log('📊 Total de links:', metadata.totalLinks);
+                }
+                
+                if (metadata.lastActivity) {
+                    console.log('⏰ Última atividade:', new Date(metadata.lastActivity).toLocaleString());
+                }
+                
+                if (metadata.mostAccessedLink) {
+                    console.log('🔥 Link mais acessado:', metadata.mostAccessedLink.title);
+                }
+            } catch (error) {
+                console.error('❌ Erro ao processar metadata do Analytics:', error);
+            }
         }
 
         // Add shake animation
@@ -2613,7 +2982,7 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98df245183432749',t:'MTc2MDM2MTcwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98df2c2ed4672749',t:'MTc2MDM2MjAyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
 
 Perfeito! Agora seu dashboard está **100% seguro** e **sem senhas hardcoded**! 🔐
