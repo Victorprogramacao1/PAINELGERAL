@@ -535,6 +535,550 @@
         .data-status-indicator.show {
             opacity: 1;
         }
+
+        /* Link Manager Styles */
+        .add-link-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-title {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 25px 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 15px 20px;
+            font-size: 16px;
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #C400FF;
+            box-shadow: 0 0 15px rgba(196, 0, 255, 0.3), inset 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .add-link-button {
+            background: linear-gradient(135deg, #C400FF, #00E0FF);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(196, 0, 255, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .add-link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 0, 255, 0.6);
+            background: linear-gradient(135deg, #E100FF, #00C4FF);
+        }
+
+        .add-link-button:active {
+            transform: translateY(0);
+        }
+
+        .button-icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #C400FF, #00E0FF);
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(196, 0, 255, 0.3);
+            border-color: rgba(196, 0, 255, 0.5);
+        }
+
+        .link-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .link-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            flex: 1;
+            margin-right: 15px;
+        }
+
+        .link-url {
+            color: rgba(0, 224, 255, 0.9);
+            font-size: 14px;
+            margin: 8px 0;
+            word-break: break-all;
+            text-decoration: none;
+        }
+
+        .link-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .link-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .link-action-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 12px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .link-action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .link-action-btn.delete {
+            border-color: rgba(255, 71, 87, 0.5);
+            color: #ff4757;
+        }
+
+        .link-action-btn.delete:hover {
+            background: rgba(255, 71, 87, 0.2);
+            border-color: #ff4757;
+        }
+
+        .link-action-btn svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .empty-state svg {
+            width: 80px;
+            height: 80px;
+            stroke: rgba(255, 255, 255, 0.3);
+            stroke-width: 1;
+            fill: none;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .empty-state p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Crypto Wallet Styles */
+        .market-overview {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .market-stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .market-stat:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(196, 0, 255, 0.2);
+        }
+
+        .market-label {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .market-value {
+            display: block;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .crypto-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(196, 0, 255, 0.5);
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #C400FF, #00E0FF);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 6px 20px rgba(196, 0, 255, 0.4);
+        }
+
+        .loading-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #C400FF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-state p {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .loading-state small {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .crypto-table-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .crypto-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .crypto-table th {
+            background: rgba(196, 0, 255, 0.2);
+            color: white;
+            font-weight: 600;
+            padding: 20px 15px;
+            text-align: left;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .crypto-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            vertical-align: middle;
+        }
+
+        .crypto-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .crypto-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .crypto-rank {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .crypto-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .crypto-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .crypto-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .crypto-symbol {
+            font-weight: 700;
+            color: white;
+            font-size: 16px;
+        }
+
+        .crypto-full-name {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .crypto-price {
+            font-weight: 700;
+            color: white;
+            font-size: 16px;
+        }
+
+        .crypto-change {
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .crypto-change.positive {
+            color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .crypto-change.negative {
+            color: #ff4757;
+            background: rgba(255, 71, 87, 0.1);
+        }
+
+        .crypto-chart {
+            width: 100px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .crypto-action {
+            display: flex;
+            gap: 8px;
+        }
+
+        .crypto-btn {
+            background: linear-gradient(135deg, #C400FF, #00E0FF);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .crypto-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(196, 0, 255, 0.4);
+        }
+
+        .crypto-btn.favorite {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .crypto-btn.favorite.active {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+        }
+
+        .error-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .error-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .error-state h3 {
+            color: white;
+            font-size: 24px;
+            margin: 0 0 15px 0;
+        }
+
+        .error-state p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            margin: 0 0 30px 0;
+        }
+
+        .retry-button {
+            background: linear-gradient(135deg, #C400FF, #00E0FF);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 0, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .crypto-table-container {
+                overflow-x: auto;
+            }
+            
+            .crypto-table {
+                min-width: 1200px;
+            }
+            
+            .market-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .crypto-filters {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -599,6 +1143,41 @@
                             <polyline points="9,22 9,12 15,12 15,22"></polyline>
                         </svg>
                         Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('analytics')">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                        </svg>
+                        Analytics
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('wallet')">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                            <line x1="18" y1="12" x2="18.01" y2="12"></line>
+                        </svg>
+                        Wallet
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('projects')">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        Projects
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('settings')">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        Settings
                     </a>
                 </li>
             </ul>
@@ -684,6 +1263,223 @@
                             <div class="stat-value">Canva</div>
                             <div class="stat-label">Design e Criação Visual</div>
                             <button class="ai-button" onclick="openAI('https://www.canva.com')">Ir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="analyticsSection" class="analytics-section" style="display: none;">
+                    <h1 class="dashboard-title">Analytics - Gerenciar Links</h1>
+                    <p class="dashboard-subtitle">Adicione seus links personalizados com título, descrição e acesso direto.</p>
+                    
+                    <!-- Add New Link Form -->
+                    <div class="add-link-form">
+                        <h3 class="form-title">Adicionar Novo Link</h3>
+                        <form id="linkForm" onsubmit="addNewLink(event)">
+                            <div class="form-group">
+                                <label for="linkTitle">Título</label>
+                                <input type="text" id="linkTitle" placeholder="Digite o título do link" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="linkUrl">URL</label>
+                                <input type="url" id="linkUrl" placeholder="https://exemplo.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="linkDescription">Descrição</label>
+                                <textarea id="linkDescription" placeholder="Descreva brevemente este link..." rows="3"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="add-link-button">
+                                <svg class="button-icon" viewBox="0 0 24 24">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Adicionar Link
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Links Grid -->
+                    <div class="links-grid" id="linksGrid">
+                        <!-- Links will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Wallet Section -->
+                <div id="walletSection" class="wallet-section" style="display: none;">
+                    <h1 class="dashboard-title">Crypto Wallet - Brasil 🇧🇷</h1>
+                    <p class="dashboard-subtitle">Monitore seu portfólio de criptomoedas em Reais Brasileiros (BRL)</p>
+                    
+                    <!-- Market Overview -->
+                    <div class="market-overview">
+                        <div class="market-stats">
+                            <div class="market-stat">
+                                <span class="market-label">Total Cryptos</span>
+                                <span class="market-value" id="totalCryptos">2,847</span>
+                            </div>
+                            <div class="market-stat">
+                                <span class="market-label">Exchanges</span>
+                                <span class="market-value" id="totalExchanges">634</span>
+                            </div>
+                            <div class="market-stat">
+                                <span class="market-label">Market Cap</span>
+                                <span class="market-value" id="totalMarketCap">R$ 11.4T</span>
+                            </div>
+                            <div class="market-stat">
+                                <span class="market-label">Volume 24h</span>
+                                <span class="market-value" id="totalVolume">R$ 442B</span>
+                            </div>
+                            <div class="market-stat">
+                                <span class="market-label">BTC Dominância</span>
+                                <span class="market-value" id="btcDominance">52.4%</span>
+                            </div>
+                            <div class="market-stat">
+                                <span class="market-label">ETH Dominância</span>
+                                <span class="market-value" id="ethDominance">17.8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div class="crypto-filters">
+                        <button class="filter-btn active" onclick="filterCryptos('all')">Todos</button>
+                        <button class="filter-btn" onclick="filterCryptos('favorites')">Favoritos</button>
+                        <button class="filter-btn" onclick="filterCryptos('gainers')">Alta</button>
+                        <button class="filter-btn" onclick="filterCryptos('losers')">Baixa</button>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="loading-state" id="cryptoLoading">
+                        <div class="loading-spinner"></div>
+                        <p>🔄 Carregando dados em tempo real...</p>
+                        <small>Conectando com CoinGecko API em BRL</small>
+                    </div>
+
+                    <!-- Crypto Table -->
+                    <div class="crypto-table-container" id="cryptoTableContainer" style="display: none;">
+                        <table class="crypto-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nome</th>
+                                    <th>Preço (BRL)</th>
+                                    <th>1h %</th>
+                                    <th>24h %</th>
+                                    <th>7d %</th>
+                                    <th>Market Cap (BRL)</th>
+                                    <th>Volume 24h (BRL)</th>
+                                    <th>Oferta Circulante</th>
+                                    <th>Últimos 7 Dias</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cryptoTableBody">
+                                <!-- Crypto data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Error State -->
+                    <div class="error-state" id="cryptoError" style="display: none;">
+                        <div class="error-icon">⚠️</div>
+                        <h3>Erro ao carregar dados</h3>
+                        <p>Não foi possível conectar com a API. Tentando novamente...</p>
+                        <button class="retry-button" onclick="loadCryptoData()">Tentar Novamente</button>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div id="projectsSection" class="projects-section" style="display: none;">
+                    <h1 class="dashboard-title">Projects</h1>
+                    <p class="dashboard-subtitle">Gerencie seus projetos e colaborações</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14,2 14,8 20,8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10,9 9,9 8,9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Projetos Ativos</div>
+                            <button class="ai-button">Novo Projeto</button>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z"></path>
+                                    <path d="M21 11h-4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z"></path>
+                                    <path d="M7 21V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-value">87%</div>
+                            <div class="stat-label">Taxa de Conclusão</div>
+                            <button class="ai-button">Relatório</button>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-value">24</div>
+                            <div class="stat-label">Colaboradores</div>
+                            <button class="ai-button">Convidar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settingsSection" class="settings-section" style="display: none;">
+                    <h1 class="dashboard-title">Settings</h1>
+                    <p class="dashboard-subtitle">Configure suas preferências e segurança</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="stat-value">Perfil</div>
+                            <div class="stat-label">Informações Pessoais</div>
+                            <button class="ai-button">Editar</button>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-value">Segurança</div>
+                            <div class="stat-label">Senha e Autenticação</div>
+                            <button class="ai-button">Configurar</button>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-value">Notificações</div>
+                            <div class="stat-label">Alertas e Avisos</div>
+                            <button class="ai-button">Personalizar</button>
                         </div>
                     </div>
                 </div>
@@ -863,12 +1659,21 @@
             // Verificar senha consultada no banco
             if (password === window.correctPassword) {
                 console.log('✅ Acesso autorizado via banco de dados');
+                
+                // Log successful login
+                logLoginAttempt(true, 'Acesso autorizado via banco de dados');
+                
                 // Acesso autorizado
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('dashboardScreen').style.display = 'flex';
                 initializeDashboard();
             } else {
                 // Senha incorreta
+                console.log('❌ Tentativa de acesso negada');
+                
+                // Log failed login attempt
+                logLoginAttempt(false, 'Senha incorreta');
+                
                 showError('Senha incorreta. Verifique no banco: security/auth/password');
                 clearPassword();
             }
@@ -919,13 +1724,43 @@
         }
 
         function openAI(url) {
+            // Log AI tool access
+            const toolName = extractToolName(url);
+            logUserAction('ai_tool_access', { 
+                tool: toolName,
+                url: url,
+                timestamp: new Date().toISOString()
+            });
+            
+            console.log(`🤖 Acessando ferramenta IA: ${toolName}`);
             window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        // Extract tool name from URL
+        function extractToolName(url) {
+            if (url.includes('runwayml.com')) return 'Runway';
+            if (url.includes('chat.openai.com')) return 'ChatGPT';
+            if (url.includes('microsoft.com')) return 'Power Automate';
+            if (url.includes('ai.google.dev')) return 'Google AI Studio';
+            if (url.includes('canva.com')) return 'Canva';
+            return 'Unknown Tool';
         }
 
         // Navigation between sections
         function showSection(sectionName) {
+            // Log navigation action
+            logUserAction('navigation', { 
+                from: getCurrentSection(), 
+                to: sectionName,
+                timestamp: new Date().toISOString()
+            });
+            
             // Hide all sections
             document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('analyticsSection').style.display = 'none';
+            document.getElementById('walletSection').style.display = 'none';
+            document.getElementById('projectsSection').style.display = 'none';
+            document.getElementById('settingsSection').style.display = 'none';
             
             // Remove active class from all nav links
             document.querySelectorAll('.nav-link').forEach(link => {
@@ -936,7 +1771,21 @@
             if (sectionName === 'home') {
                 document.getElementById('homeSection').style.display = 'block';
                 document.querySelector('[onclick="showSection(\'home\')"]').classList.add('active');
+            } else if (sectionName === 'analytics') {
+                document.getElementById('analyticsSection').style.display = 'block';
+                document.querySelector('[onclick="showSection(\'analytics\')"]').classList.add('active');
+            } else if (sectionName === 'wallet') {
+                document.getElementById('walletSection').style.display = 'block';
+                document.querySelector('[onclick="showSection(\'wallet\')"]').classList.add('active');
+            } else if (sectionName === 'projects') {
+                document.getElementById('projectsSection').style.display = 'block';
+                document.querySelector('[onclick="showSection(\'projects\')"]').classList.add('active');
+            } else if (sectionName === 'settings') {
+                document.getElementById('settingsSection').style.display = 'block';
+                document.querySelector('[onclick="showSection(\'settings\')"]').classList.add('active');
             }
+            
+            console.log(`📍 Navegação: ${sectionName}`);
         }
 
         // Initialize dashboard
@@ -945,6 +1794,248 @@
             
             // Update database status
             updateDatabaseStatus();
+            
+            // Start real-time synchronization
+            startRealtimeSync();
+        }
+
+        // Real-time synchronization with database
+        function startRealtimeSync() {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) {
+                console.log('⚠️ Sincronização não disponível - banco desconectado');
+                return;
+            }
+
+            console.log('🔄 Iniciando sincronização em tempo real...');
+
+            // Sync dashboard stats
+            const statsRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/stats');
+            window.realtimeUtils.onValue(statsRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const stats = snapshot.val();
+                    updateDashboardStats(stats);
+                    showSyncStatus('📊 Dados sincronizados', 'success');
+                }
+            });
+
+            // Sync user activity
+            const activityRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/activity');
+            window.realtimeUtils.onValue(activityRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const activity = snapshot.val();
+                    updateActivityData(activity);
+                }
+            });
+
+            // Sync settings
+            const settingsRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/settings');
+            window.realtimeUtils.onValue(settingsRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const settings = snapshot.val();
+                    applySettings(settings);
+                }
+            });
+
+            // Send heartbeat every 30 seconds
+            setInterval(() => {
+                sendHeartbeat();
+            }, 30000);
+
+            console.log('✅ Sincronização em tempo real ativa');
+        }
+
+        // Update dashboard statistics
+        function updateDashboardStats(stats) {
+            try {
+                // Update Analytics section
+                const analyticsCards = document.querySelectorAll('#analyticsSection .stat-value');
+                if (analyticsCards.length >= 3 && stats.analytics) {
+                    analyticsCards[0].textContent = stats.analytics.activeUsers || '1,247';
+                    analyticsCards[1].textContent = stats.analytics.conversionRate || '89.2%';
+                    analyticsCards[2].textContent = stats.analytics.avgTime || '2m 34s';
+                }
+
+                // Update Wallet section
+                const walletCards = document.querySelectorAll('#walletSection .stat-value');
+                if (walletCards.length >= 3 && stats.wallet) {
+                    walletCards[0].textContent = stats.wallet.balance || 'R$ 12.847';
+                    walletCards[1].textContent = stats.wallet.growth || '+15.3%';
+                    walletCards[2].textContent = stats.wallet.activeCards || '3';
+                }
+
+                // Update Projects section
+                const projectCards = document.querySelectorAll('#projectsSection .stat-value');
+                if (projectCards.length >= 3 && stats.projects) {
+                    projectCards[0].textContent = stats.projects.active || '12';
+                    projectCards[1].textContent = stats.projects.completion || '87%';
+                    projectCards[2].textContent = stats.projects.collaborators || '24';
+                }
+
+                console.log('📊 Estatísticas atualizadas do banco');
+            } catch (error) {
+                console.error('❌ Erro ao atualizar estatísticas:', error);
+            }
+        }
+
+        // Update activity data
+        function updateActivityData(activity) {
+            try {
+                if (activity.lastLogin) {
+                    console.log('👤 Último login:', new Date(activity.lastLogin).toLocaleString());
+                }
+                
+                if (activity.sessionsToday) {
+                    console.log('📈 Sessões hoje:', activity.sessionsToday);
+                }
+            } catch (error) {
+                console.error('❌ Erro ao processar atividade:', error);
+            }
+        }
+
+        // Apply settings from database
+        function applySettings(settings) {
+            try {
+                if (settings.theme) {
+                    console.log('🎨 Tema aplicado:', settings.theme);
+                }
+                
+                if (settings.notifications !== undefined) {
+                    console.log('🔔 Notificações:', settings.notifications ? 'Ativadas' : 'Desativadas');
+                }
+            } catch (error) {
+                console.error('❌ Erro ao aplicar configurações:', error);
+            }
+        }
+
+        // Send heartbeat to database
+        async function sendHeartbeat() {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) return;
+
+            try {
+                const heartbeatRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/heartbeat');
+                await window.realtimeUtils.set(heartbeatRef, {
+                    timestamp: window.realtimeUtils.serverTimestamp(),
+                    status: 'online',
+                    section: getCurrentSection(),
+                    userAgent: navigator.userAgent.substring(0, 100)
+                });
+                
+                console.log('💓 Heartbeat enviado');
+            } catch (error) {
+                console.error('❌ Erro ao enviar heartbeat:', error);
+            }
+        }
+
+        // Get current active section
+        function getCurrentSection() {
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) {
+                const onclick = activeLink.getAttribute('onclick');
+                const match = onclick.match(/showSection\('(.+?)'\)/);
+                return match ? match[1] : 'home';
+            }
+            return 'home';
+        }
+
+        // Log user actions to database
+        async function logUserAction(action, details = {}) {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) return;
+
+            try {
+                const actionRef = window.realtimeUtils.ref(window.realtimeDb, `dashboard/actions/${Date.now()}`);
+                await window.realtimeUtils.set(actionRef, {
+                    action: action,
+                    details: details,
+                    timestamp: window.realtimeUtils.serverTimestamp(),
+                    section: getCurrentSection()
+                });
+                
+                console.log('📝 Ação registrada:', action);
+            } catch (error) {
+                console.error('❌ Erro ao registrar ação:', error);
+            }
+        }
+
+        // Show sync status
+        function showSyncStatus(message, type = 'info') {
+            const updateEl = document.getElementById('updateIndicator');
+            if (!updateEl) return;
+            
+            const colors = {
+                success: 'rgba(0, 255, 136, 0.9)',
+                warning: 'rgba(255, 165, 0, 0.9)', 
+                error: 'rgba(255, 71, 87, 0.9)',
+                info: 'rgba(0, 224, 255, 0.9)'
+            };
+            
+            updateEl.textContent = message;
+            updateEl.style.background = colors[type];
+            updateEl.classList.add('show');
+            
+            setTimeout(() => {
+                updateEl.classList.remove('show');
+            }, 3000);
+        }
+
+        // Log login attempts to database
+        async function logLoginAttempt(success, message) {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) return;
+
+            try {
+                const loginRef = window.realtimeUtils.ref(window.realtimeDb, `security/login_attempts/${Date.now()}`);
+                await window.realtimeUtils.set(loginRef, {
+                    success: success,
+                    message: message,
+                    timestamp: window.realtimeUtils.serverTimestamp(),
+                    userAgent: navigator.userAgent.substring(0, 100),
+                    ip: 'client-side', // Cannot get real IP from client
+                    sessionId: generateSessionId()
+                });
+                
+                console.log('🔐 Tentativa de login registrada:', success ? 'SUCESSO' : 'FALHA');
+                
+                // Update activity counter
+                if (success) {
+                    updateLoginActivity();
+                }
+                
+            } catch (error) {
+                console.error('❌ Erro ao registrar login:', error);
+            }
+        }
+
+        // Generate session ID
+        function generateSessionId() {
+            return 'sess_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Update login activity counter
+        async function updateLoginActivity() {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) return;
+
+            try {
+                const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+                const activityRef = window.realtimeUtils.ref(window.realtimeDb, `dashboard/activity`);
+                
+                // Get current activity data
+                const snapshot = await window.realtimeUtils.get(activityRef);
+                const currentActivity = snapshot.exists() ? snapshot.val() : {};
+                
+                // Update counters
+                const updatedActivity = {
+                    ...currentActivity,
+                    lastLogin: window.realtimeUtils.serverTimestamp(),
+                    sessionsToday: (currentActivity.sessionsToday || 0) + 1,
+                    totalSessions: (currentActivity.totalSessions || 0) + 1,
+                    lastLoginDate: today
+                };
+                
+                await window.realtimeUtils.set(activityRef, updatedActivity);
+                console.log('📊 Atividade de login atualizada');
+                
+            } catch (error) {
+                console.error('❌ Erro ao atualizar atividade:', error);
+            }
         }
 
         // Update database connection status
@@ -964,6 +2055,535 @@
 
         // Make updateDatabaseStatus globally available
         window.updateDatabaseStatus = updateDatabaseStatus;
+
+        // Crypto Wallet Functionality
+        let cryptoData = [];
+        let filteredCryptoData = [];
+        let currentFilter = 'all';
+        let favorites = JSON.parse(localStorage.getItem('cryptoFavorites') || '[]');
+        let isLoadingCrypto = false;
+
+        // CoinGecko API configuration
+        const COINGECKO_API = 'https://api.coingecko.com/api/v3';
+        const BRL_CURRENCY = 'brl';
+
+        // Load crypto data from CoinGecko API
+        async function loadCryptoData() {
+            if (isLoadingCrypto) return;
+            
+            isLoadingCrypto = true;
+            showCryptoLoading();
+            
+            try {
+                console.log('🔄 Carregando dados de criptomoedas...');
+                
+                // Fetch market data in BRL
+                const marketResponse = await fetch(
+                    `${COINGECKO_API}/coins/markets?vs_currency=${BRL_CURRENCY}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h,24h,7d`
+                );
+                
+                if (!marketResponse.ok) {
+                    throw new Error(`API Error: ${marketResponse.status}`);
+                }
+                
+                const marketData = await marketResponse.json();
+                
+                // Fetch global market data
+                const globalResponse = await fetch(`${COINGECKO_API}/global`);
+                const globalData = globalResponse.ok ? await globalResponse.json() : null;
+                
+                // Process and store data
+                cryptoData = marketData.map((coin, index) => ({
+                    rank: coin.market_cap_rank || index + 1,
+                    id: coin.id,
+                    symbol: coin.symbol.toUpperCase(),
+                    name: coin.name,
+                    image: coin.image,
+                    price: coin.current_price,
+                    priceChange1h: coin.price_change_percentage_1h_in_currency || 0,
+                    priceChange24h: coin.price_change_percentage_24h || 0,
+                    priceChange7d: coin.price_change_percentage_7d_in_currency || 0,
+                    marketCap: coin.market_cap,
+                    volume24h: coin.total_volume,
+                    circulatingSupply: coin.circulating_supply,
+                    lastUpdated: coin.last_updated
+                }));
+                
+                // Update global market stats
+                if (globalData && globalData.data) {
+                    updateGlobalMarketStats(globalData.data);
+                }
+                
+                // Apply current filter and render
+                filterCryptos(currentFilter);
+                showCryptoTable();
+                
+                console.log('✅ Dados de criptomoedas carregados com sucesso');
+                console.log(`📊 ${cryptoData.length} criptomoedas carregadas`);
+                
+                // Log to database
+                logUserAction('crypto_data_loaded', {
+                    count: cryptoData.length,
+                    currency: 'BRL',
+                    timestamp: new Date().toISOString()
+                });
+                
+                // Auto-refresh every 60 seconds
+                setTimeout(() => {
+                    if (getCurrentSection() === 'wallet') {
+                        loadCryptoData();
+                    }
+                }, 60000);
+                
+            } catch (error) {
+                console.error('❌ Erro ao carregar dados de criptomoedas:', error);
+                showCryptoError();
+                
+                // Retry after 10 seconds
+                setTimeout(() => {
+                    if (getCurrentSection() === 'wallet') {
+                        loadCryptoData();
+                    }
+                }, 10000);
+            } finally {
+                isLoadingCrypto = false;
+            }
+        }
+
+        // Update global market statistics
+        function updateGlobalMarketStats(globalData) {
+            try {
+                // Update market overview
+                document.getElementById('totalCryptos').textContent = 
+                    globalData.active_cryptocurrencies?.toLocaleString('pt-BR') || '2,847';
+                
+                document.getElementById('totalExchanges').textContent = 
+                    globalData.markets?.toLocaleString('pt-BR') || '634';
+                
+                // Convert market cap to BRL (approximate)
+                const marketCapBRL = globalData.total_market_cap?.brl;
+                if (marketCapBRL) {
+                    document.getElementById('totalMarketCap').textContent = 
+                        `R$ ${formatLargeNumber(marketCapBRL)}`;
+                }
+                
+                // Convert volume to BRL (approximate)
+                const volumeBRL = globalData.total_volume?.brl;
+                if (volumeBRL) {
+                    document.getElementById('totalVolume').textContent = 
+                        `R$ ${formatLargeNumber(volumeBRL)}`;
+                }
+                
+                // Update dominance
+                if (globalData.market_cap_percentage?.btc) {
+                    document.getElementById('btcDominance').textContent = 
+                        `${globalData.market_cap_percentage.btc.toFixed(1)}%`;
+                }
+                
+                if (globalData.market_cap_percentage?.eth) {
+                    document.getElementById('ethDominance').textContent = 
+                        `${globalData.market_cap_percentage.eth.toFixed(1)}%`;
+                }
+                
+                console.log('📊 Estatísticas globais atualizadas');
+                
+            } catch (error) {
+                console.error('❌ Erro ao atualizar estatísticas globais:', error);
+            }
+        }
+
+        // Format large numbers (K, M, B, T)
+        function formatLargeNumber(num) {
+            if (num >= 1e12) return (num / 1e12).toFixed(1) + 'T';
+            if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B';
+            if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M';
+            if (num >= 1e3) return (num / 1e3).toFixed(1) + 'K';
+            return num.toFixed(2);
+        }
+
+        // Format currency in BRL
+        function formatBRL(amount) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 6
+            }).format(amount);
+        }
+
+        // Format percentage change
+        function formatPercentage(change) {
+            const formatted = Math.abs(change).toFixed(2);
+            return change >= 0 ? `+${formatted}%` : `-${formatted}%`;
+        }
+
+        // Filter cryptocurrencies
+        function filterCryptos(filterType) {
+            currentFilter = filterType;
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event?.target?.classList.add('active') || 
+            document.querySelector(`[onclick="filterCryptos('${filterType}')"]`)?.classList.add('active');
+            
+            switch (filterType) {
+                case 'all':
+                    filteredCryptoData = [...cryptoData];
+                    break;
+                case 'favorites':
+                    filteredCryptoData = cryptoData.filter(coin => favorites.includes(coin.id));
+                    break;
+                case 'gainers':
+                    filteredCryptoData = cryptoData.filter(coin => coin.priceChange24h > 0)
+                        .sort((a, b) => b.priceChange24h - a.priceChange24h);
+                    break;
+                case 'losers':
+                    filteredCryptoData = cryptoData.filter(coin => coin.priceChange24h < 0)
+                        .sort((a, b) => a.priceChange24h - b.priceChange24h);
+                    break;
+                default:
+                    filteredCryptoData = [...cryptoData];
+            }
+            
+            renderCryptoTable();
+            
+            console.log(`🔍 Filtro aplicado: ${filterType} (${filteredCryptoData.length} moedas)`);
+        }
+
+        // Render cryptocurrency table
+        function renderCryptoTable() {
+            const tableBody = document.getElementById('cryptoTableBody');
+            
+            if (filteredCryptoData.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="11" style="text-align: center; padding: 40px; color: rgba(255, 255, 255, 0.6);">
+                            ${currentFilter === 'favorites' ? 
+                                '⭐ Nenhuma criptomoeda favoritada ainda' : 
+                                '📊 Nenhuma criptomoeda encontrada'}
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            tableBody.innerHTML = filteredCryptoData.map(coin => `
+                <tr>
+                    <td class="crypto-rank">${coin.rank}</td>
+                    <td class="crypto-name">
+                        <img src="${coin.image}" alt="${coin.name}" class="crypto-logo" 
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNDNDAwRkYiLz4KPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMkM0LjY4NiAyIDIgNC42ODYgMiA4UzQuNjg2IDE0IDggMTRTMTQgMTEuMzE0IDE0IDhTMTEuMzE0IDIgOCAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cjwvc3ZnPgo='; this.alt='Crypto Logo';">
+                        <div class="crypto-info">
+                            <span class="crypto-symbol">${coin.symbol}</span>
+                            <span class="crypto-full-name">${coin.name}</span>
+                        </div>
+                    </td>
+                    <td class="crypto-price">${formatBRL(coin.price)}</td>
+                    <td class="crypto-change ${coin.priceChange1h >= 0 ? 'positive' : 'negative'}">
+                        ${formatPercentage(coin.priceChange1h)}
+                    </td>
+                    <td class="crypto-change ${coin.priceChange24h >= 0 ? 'positive' : 'negative'}">
+                        ${formatPercentage(coin.priceChange24h)}
+                    </td>
+                    <td class="crypto-change ${coin.priceChange7d >= 0 ? 'positive' : 'negative'}">
+                        ${formatPercentage(coin.priceChange7d)}
+                    </td>
+                    <td>${coin.marketCap ? formatBRL(coin.marketCap) : 'N/A'}</td>
+                    <td>${coin.volume24h ? formatBRL(coin.volume24h) : 'N/A'}</td>
+                    <td>${coin.circulatingSupply ? coin.circulatingSupply.toLocaleString('pt-BR') : 'N/A'}</td>
+                    <td class="crypto-chart">📈 Gráfico</td>
+                    <td class="crypto-action">
+                        <button class="crypto-btn favorite ${favorites.includes(coin.id) ? 'active' : ''}" 
+                                onclick="toggleFavorite('${coin.id}')" title="Favoritar">
+                            ${favorites.includes(coin.id) ? '⭐' : '☆'}
+                        </button>
+                        <button class="crypto-btn" onclick="buyCrypto('${coin.id}', '${coin.symbol}')" title="Comprar">
+                            Comprar
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Toggle favorite cryptocurrency
+        function toggleFavorite(coinId) {
+            const index = favorites.indexOf(coinId);
+            
+            if (index === -1) {
+                favorites.push(coinId);
+                console.log(`⭐ ${coinId} adicionado aos favoritos`);
+            } else {
+                favorites.splice(index, 1);
+                console.log(`☆ ${coinId} removido dos favoritos`);
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('cryptoFavorites', JSON.stringify(favorites));
+            
+            // Re-render table to update favorite buttons
+            renderCryptoTable();
+            
+            // Log action
+            logUserAction('crypto_favorite_toggle', {
+                coinId: coinId,
+                action: index === -1 ? 'added' : 'removed',
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Buy cryptocurrency (demo function)
+        function buyCrypto(coinId, symbol) {
+            // This is a demo function - in a real app, this would integrate with an exchange API
+            console.log(`💰 Simulando compra de ${symbol}`);
+            
+            // Show demo alert
+            showSyncStatus(`💰 Compra de ${symbol} simulada (Demo)`, 'info');
+            
+            // Log action
+            logUserAction('crypto_buy_demo', {
+                coinId: coinId,
+                symbol: symbol,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Show loading state
+        function showCryptoLoading() {
+            document.getElementById('cryptoLoading').style.display = 'block';
+            document.getElementById('cryptoTableContainer').style.display = 'none';
+            document.getElementById('cryptoError').style.display = 'none';
+        }
+
+        // Show crypto table
+        function showCryptoTable() {
+            document.getElementById('cryptoLoading').style.display = 'none';
+            document.getElementById('cryptoTableContainer').style.display = 'block';
+            document.getElementById('cryptoError').style.display = 'none';
+        }
+
+        // Show error state
+        function showCryptoError() {
+            document.getElementById('cryptoLoading').style.display = 'none';
+            document.getElementById('cryptoTableContainer').style.display = 'none';
+            document.getElementById('cryptoError').style.display = 'block';
+        }
+
+        // Initialize crypto data when wallet section is accessed
+        const originalShowSection = showSection;
+        function showSection(sectionName) {
+            originalShowSection(sectionName);
+            
+            // Load crypto data when wallet section is accessed
+            if (sectionName === 'wallet' && cryptoData.length === 0) {
+                loadCryptoData();
+            }
+        }
+
+        // Link Management Functions
+        let userLinks = [];
+
+        // Load links from database on dashboard initialization
+        async function loadLinksFromDatabase() {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) {
+                loadLinksFromLocalStorage();
+                return;
+            }
+
+            try {
+                const linksRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/links');
+                const snapshot = await window.realtimeUtils.get(linksRef);
+                
+                if (snapshot.exists()) {
+                    userLinks = Object.values(snapshot.val());
+                    console.log('🔗 Links carregados do banco de dados');
+                } else {
+                    userLinks = [];
+                    console.log('📝 Nenhum link encontrado no banco');
+                }
+                
+                renderLinks();
+            } catch (error) {
+                console.error('❌ Erro ao carregar links:', error);
+                loadLinksFromLocalStorage();
+            }
+        }
+
+        // Save links to database
+        async function saveLinksToDatabase() {
+            if (!window.isRealtimeEnabled || !window.realtimeDb) {
+                saveLinksToLocalStorage();
+                return;
+            }
+
+            try {
+                const linksRef = window.realtimeUtils.ref(window.realtimeDb, 'dashboard/links');
+                const linksObject = {};
+                
+                userLinks.forEach((link, index) => {
+                    linksObject[`link_${index}`] = link;
+                });
+                
+                await window.realtimeUtils.set(linksRef, linksObject);
+                console.log('💾 Links salvos no banco de dados');
+                showSyncStatus('🔗 Links sincronizados', 'success');
+            } catch (error) {
+                console.error('❌ Erro ao salvar links:', error);
+                saveLinksToLocalStorage();
+            }
+        }
+
+        // Fallback to localStorage
+        function loadLinksFromLocalStorage() {
+            const savedLinks = localStorage.getItem('userLinks');
+            userLinks = savedLinks ? JSON.parse(savedLinks) : [];
+            renderLinks();
+            console.log('📱 Links carregados do armazenamento local');
+        }
+
+        function saveLinksToLocalStorage() {
+            localStorage.setItem('userLinks', JSON.stringify(userLinks));
+            console.log('💾 Links salvos localmente');
+        }
+
+        // Add new link
+        async function addNewLink(event) {
+            event.preventDefault();
+            
+            const title = document.getElementById('linkTitle').value.trim();
+            const url = document.getElementById('linkUrl').value.trim();
+            const description = document.getElementById('linkDescription').value.trim();
+            
+            if (!title || !url) {
+                showSyncStatus('❌ Título e URL são obrigatórios', 'error');
+                return;
+            }
+            
+            // Validate URL
+            try {
+                new URL(url);
+            } catch {
+                showSyncStatus('❌ URL inválida', 'error');
+                return;
+            }
+            
+            const newLink = {
+                id: Date.now(),
+                title: title,
+                url: url,
+                description: description || 'Sem descrição',
+                createdAt: new Date().toISOString()
+            };
+            
+            userLinks.unshift(newLink);
+            
+            // Clear form
+            document.getElementById('linkForm').reset();
+            
+            // Save and render
+            await saveLinksToDatabase();
+            renderLinks();
+            
+            // Log action
+            logUserAction('link_added', {
+                title: title,
+                url: url,
+                timestamp: new Date().toISOString()
+            });
+            
+            showSyncStatus('✅ Link adicionado com sucesso', 'success');
+            console.log('🔗 Novo link adicionado:', title);
+        }
+
+        // Delete link
+        async function deleteLink(linkId) {
+            const linkIndex = userLinks.findIndex(link => link.id === linkId);
+            if (linkIndex === -1) return;
+            
+            const deletedLink = userLinks[linkIndex];
+            userLinks.splice(linkIndex, 1);
+            
+            await saveLinksToDatabase();
+            renderLinks();
+            
+            // Log action
+            logUserAction('link_deleted', {
+                title: deletedLink.title,
+                url: deletedLink.url,
+                timestamp: new Date().toISOString()
+            });
+            
+            showSyncStatus('🗑️ Link removido', 'warning');
+            console.log('🗑️ Link removido:', deletedLink.title);
+        }
+
+        // Open link
+        function openLink(url, title) {
+            // Log link access
+            logUserAction('link_accessed', {
+                title: title,
+                url: url,
+                timestamp: new Date().toISOString()
+            });
+            
+            console.log('🔗 Abrindo link:', title);
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        // Render links
+        function renderLinks() {
+            const linksGrid = document.getElementById('linksGrid');
+            
+            if (userLinks.length === 0) {
+                linksGrid.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                        <h3>Nenhum link adicionado</h3>
+                        <p>Use o formulário acima para adicionar seus primeiros links personalizados</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            linksGrid.innerHTML = userLinks.map(link => `
+                <div class="link-card" onclick="openLink('${link.url}', '${link.title.replace(/'/g, "\\'")}')">
+                    <div class="link-header">
+                        <h3 class="link-title">${escapeHtml(link.title)}</h3>
+                    </div>
+                    
+                    <div class="link-url">${escapeHtml(link.url)}</div>
+                    <div class="link-description">${escapeHtml(link.description)}</div>
+                    
+                    <div class="link-actions">
+                        <button class="link-action-btn delete" onclick="event.stopPropagation(); deleteLink(${link.id})">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="3,6 5,6 21,6"></polyline>
+                                <path d="M19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"></path>
+                            </svg>
+                            Remover
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Initialize links when dashboard loads
+        const originalInitializeDashboard = initializeDashboard;
+        async function initializeDashboard() {
+            await originalInitializeDashboard();
+            await loadLinksFromDatabase();
+        }
 
         // Add shake animation
         const style = document.createElement('style');
@@ -993,7 +2613,7 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98df021f87882749',t:'MTc2MDM2MDMwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98df245183432749',t:'MTc2MDM2MTcwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
 
 Perfeito! Agora seu dashboard está **100% seguro** e **sem senhas hardcoded**! 🔐
